@@ -98,7 +98,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">1</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">2</span></li></ul>
               </li>
             
           
@@ -162,6 +162,67 @@
           <h1><a href="/archives/2017" class="archive-year">2017</a></h1>
         </div>
         <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2017/12/12/获取腾讯视频真实地址/" >
+  
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2017/12/12/获取腾讯视频真实地址/"><span class="article-date">
+  2017-12-12
+</span>
+</a>
+        
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h1 id="通过腾讯视频播放页获取视频的真实地址"><a href="#通过腾讯视频播放页获取视频的真实地址" class="headerlink" title="通过腾讯视频播放页获取视频的真实地址"></a>通过腾讯视频播放页获取视频的真实地址</h1><p>目前发现的好处是看部分动漫没广告…</p>
+<hr>
+<pre><code>http://vv.video.qq.com/getinfo?otype=json&amp;platform=11001&amp;vid=
+</code></pre><p>上面是获取腾讯视频的API接口网址，下面是腾讯视频播放页URL</p>
+<pre><code>https://v.qq.com/x/cover/0sdnyl7h86atoyt/f0157y2e83y.html
+</code></pre><p>其中  f0157y2e83y  就是视频ID  </p>
+<p>在API网址的vid=处补上视频ID即可获取视频相关信息的JSON  </p>
+<p><strong>需要注意的是：</strong>视频是剧集的的话，刚进入页面是不会显示单集的视频ID，而是会显示剧集ID，只需切换一下集数，URL便会显示出视频ID  </p>
+<pre><code>https://v.qq.com/x/cover/0sdnyl7h86atoyt.html  
+</code></pre><p> 0sdnyl7h86atoyt  便是剧集ID，暂时用不上  </p>
+<hr>
+<p>###如果视频为腾讯商业片，则只能播放 5分钟 时长的视频，比如独播什么的，避免用于商业用途</p>
+<hr>
+<p>获取的JSON大致如下：  </p>
+<pre><code>QZOutputJson={&quot;dltype&quot;:1,&quot;exem&quot;:0,&quot;fl&quot;:{&quot;cnt&quot;:2,&quot;fi&quot;:[{&quot;id&quot;:100001,&quot;name&quot;:&quot;msd&quot;,&quot;lmt&quot;:0,&quot;sb&quot;:1,&quot;cname&quot;:&quot;标清;(270P)&quot;,&quot;br&quot;:34,&quot;drm&quot;:0,&quot;video&quot;:1,&quot;audio&quot;:1,&quot;fs&quot;:20326350,&quot;sl&quot;:1},{&quot;id&quot;:2,&quot;name&quot;:&quot;mp4&quot;,&quot;lmt&quot;:0,&quot;sb&quot;:1,&quot;cname&quot;:&quot;高清;(480P)&quot;,&quot;br&quot;:39,&quot;drm&quot;:0,&quot;video&quot;:1,&quot;audio&quot;:1,&quot;fs&quot;:35708312,&quot;sl&quot;:0}]},&quot;hs&quot;:0,&quot;ip&quot;:&quot;121.34.52.85&quot;,&quot;ls&quot;:0,&quot;preview&quot;:574,&quot;s&quot;:&quot;o&quot;,&quot;sfl&quot;:{&quot;cnt&quot;:0},&quot;tm&quot;:1507207567,&quot;vl&quot;:{&quot;cnt&quot;:1,&quot;vi&quot;:[{&quot;br&quot;:34,&quot;ch&quot;:0,&quot;cl&quot;:{&quot;fc&quot;:0,&quot;keyid&quot;:&quot;s0018r5ar40.100001&quot;},&quot;ct&quot;:21600,&quot;drm&quot;:0,&quot;dsb&quot;:0,&quot;fmd5&quot;:&quot;e4219a5eb6f9e790058a79a3335470d1&quot;,&quot;fn&quot;:&quot;s0018r5ar40.m1.mp4&quot;,&quot;fs&quot;:20326350,&quot;fst&quot;:5,&quot;fvkey&quot;:&quot;0F6E08B16D53F32F38468CAE9CC1246B51BA0E98B81F977389A760EB2B44AFDBBCB4DC0FFAB50F5F754478EC348096C58CBD7540D6F9A0F074808BF667D01139FEC11B7C90790B2FA5DF1BDB73D78FBDC051A64C6657368CE53EA3CCC2E672C95DF9ADD8A0723D28&quot;,&quot;head&quot;:0,&quot;hevc&quot;:0,&quot;iflag&quot;:0,&quot;level&quot;:0,&quot;lnk&quot;:&quot;s0018r5ar40&quot;,&quot;logo&quot;:1,&quot;mst&quot;:8,&quot;pl&quot;:[{&quot;cnt&quot;:2,&quot;pd&quot;:[{&quot;cd&quot;:5,&quot;h&quot;:45,&quot;w&quot;:80,&quot;r&quot;:10,&quot;c&quot;:10,&quot;fmt&quot;:40001,&quot;fn&quot;:&quot;q1&quot;,&quot;url&quot;:&quot;http://puui.qpic.cn/video_caps/0/&quot;},{&quot;cd&quot;:5,&quot;h&quot;:90,&quot;w&quot;:160,&quot;r&quot;:5,&quot;c&quot;:5,&quot;fmt&quot;:40002,&quot;fn&quot;:&quot;q2&quot;,&quot;url&quot;:&quot;http://puui.qpic.cn/video_caps/0/&quot;}]}],&quot;share&quot;:1,&quot;sp&quot;:0,&quot;st&quot;:2,&quot;tail&quot;:0,&quot;td&quot;:&quot;574.074&quot;,&quot;ti&quot;:&quot;狐妖小红娘_01&quot;,&quot;type&quot;:9,&quot;ul&quot;:{&quot;ui&quot;:[{&quot;url&quot;:&quot;http://183.60.23.12/vlive.qqvideo.tc.qq.com/AUjL0nJezpRZgy958_YiqK7gmQAdWzsk1sXyvbq_LInI/&quot;,&quot;vt&quot;:203,&quot;dtc&quot;:0,&quot;dt&quot;:2},{&quot;url&quot;:&quot;http://lmydzd.qq.com/flv/34/218/&quot;,&quot;vt&quot;:140,&quot;dtc&quot;:0,&quot;dt&quot;:2},{&quot;url&quot;:&quot;http://vhoth.dnion.videocdn.qq.com/flv/34/218/&quot;,&quot;vt&quot;:112,&quot;dtc&quot;:0,&quot;dt&quot;:2},{&quot;url&quot;:&quot;http://video.dispatch.tc.qq.com/&quot;,&quot;vt&quot;:0,&quot;dtc&quot;:0,&quot;dt&quot;:2}]},&quot;vh&quot;:256,&quot;vid&quot;:&quot;f0157y2e83y&quot;,&quot;videotype&quot;:3,&quot;vr&quot;:0,&quot;vst&quot;:2,&quot;vw&quot;:480,&quot;wh&quot;:1.875,&quot;wl&quot;:{&quot;wi&quot;:[]}}]}};
+</code></pre><p>根据获取的JSON，在php中处理一下<br>格式为 <code>url+fn+&#39;?vkey=&#39;+fvkey</code></p>
+<pre><code>$res = mb_substr(mb_strcut($res, 13),0,-1);
+$res = json_decode($res, true);
+$u = $res[&apos;vl&apos;][&apos;vi&apos;][0];
+$p0 = $u[&apos;ul&apos;][&apos;ui&apos;][0][&apos;url&apos;];
+$p1 = $u[&apos;fn&apos;];
+$p2 = $u[&apos;fvkey&apos;];
+return $p0.$p1.&apos;?vkey=&apos;.$p2; 
+</code></pre><p>######或者手动截取   （手动滑稽）</p>
+<p>最终组合成一个网址</p>
+<pre><code>http://videohy.tc.qq.com/vlive.qqvideo.tc.qq.com/AUjL0nJezpRZgy958_YiqK7gmQAdWzsk1sXyvbq_LInI/s0018r5ar40.m1.mp4?vkey=0F6E08B16D53F32F38468CAE9CC1246B51BA0E98B81F977389A760EB2B44AFDBBCB4DC0FFAB50F5F754478EC348096C58CBD7540D6F9A0F074808BF667D01139FEC11B7C90790B2FA5DF1BDB73D78FBDC051A64C6657368CE53EA3CCC2E672C95DF9ADD8A0723D28&amp;ocid=206312876
+</code></pre><p>就是我们要的视频真实地址  </p>
+<hr>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
     
   
 
