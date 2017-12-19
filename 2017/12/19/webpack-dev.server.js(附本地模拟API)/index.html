@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="##个人闭包理解 var add = (function () {     var counter = 0;        //只在函数自执行时执行一次     return function () {return counter += 1;} })();   //最后这个括号代表着自执行函数，立即执行一次，在这次执行之中，定义了函数局部变量counter,赋值为0，随后返回一个函数     //">
+<meta name="description" content="##dev.server.js 文件说明（附模拟API方法）    /*  * npm run dev 调试执行文件，主要用于开发环境  * 建议先查阅webapck.dev.conf.js  ../config/index.js */  // npm和node版本检查 require(‘./check-versions‘)()  var config = require(‘../config‘)">
 <meta name="keywords" content="knowledge">
 <meta property="og:type" content="article">
-<meta property="og:title" content="个人闭包理解">
-<meta property="og:url" content="http://yoursite.com/2017/12/12/个人闭包理解/index.html">
+<meta property="og:title" content="webpack-dev.server.js(附本地模拟API方法)">
+<meta property="og:url" content="http://yoursite.com/2017/12/19/webpack-dev.server.js(附本地模拟API)/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="##个人闭包理解 var add = (function () {     var counter = 0;        //只在函数自执行时执行一次     return function () {return counter += 1;} })();   //最后这个括号代表着自执行函数，立即执行一次，在这次执行之中，定义了函数局部变量counter,赋值为0，随后返回一个函数     //">
+<meta property="og:description" content="##dev.server.js 文件说明（附模拟API方法）    /*  * npm run dev 调试执行文件，主要用于开发环境  * 建议先查阅webapck.dev.conf.js  ../config/index.js */  // npm和node版本检查 require(‘./check-versions‘)()  var config = require(‘../config‘)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-12T09:35:11.979Z">
+<meta property="og:updated_time" content="2017-12-19T10:09:18.080Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人闭包理解">
-<meta name="twitter:description" content="##个人闭包理解 var add = (function () {     var counter = 0;        //只在函数自执行时执行一次     return function () {return counter += 1;} })();   //最后这个括号代表着自执行函数，立即执行一次，在这次执行之中，定义了函数局部变量counter,赋值为0，随后返回一个函数     //">
+<meta name="twitter:title" content="webpack-dev.server.js(附本地模拟API方法)">
+<meta name="twitter:description" content="##dev.server.js 文件说明（附模拟API方法）    /*  * npm run dev 调试执行文件，主要用于开发环境  * 建议先查阅webapck.dev.conf.js  ../config/index.js */  // npm和node版本检查 require(‘./check-versions‘)()  var config = require(‘../config‘)">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/12/个人闭包理解/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/19/webpack-dev.server.js(附本地模拟API)/"/>
 
 
 
 
 
-  <title>个人闭包理解 | MY BLOG</title>
+  <title>webpack-dev.server.js(附本地模拟API方法) | MY BLOG</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/12/个人闭包理解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/19/webpack-dev.server.js(附本地模拟API)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tmy">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">个人闭包理解</h1>
+          <h1 class="post-title" itemprop="name headline">webpack-dev.server.js(附本地模拟API方法)</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-12T17:34:24+08:00">
-                2017-12-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T18:08:01+08:00">
+                2017-12-19
               </time>
             
 
@@ -291,9 +291,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/12/个人闭包理解/#comments" itemprop="discussionUrl">
+                <a href="/2017/12/19/webpack-dev.server.js(附本地模拟API)/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/12/个人闭包理解/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/12/19/webpack-dev.server.js(附本地模拟API)/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -321,23 +321,167 @@
       
 
       
-        <p>##个人闭包理解</p>
-<pre><code>var add = (function () {
-    var counter = 0;        //只在函数自执行时执行一次
-    return function () {return counter += 1;}
-})();   //最后这个括号代表着自执行函数，立即执行一次，在这次执行之中，定义了函数局部变量counter,赋值为0，随后返回一个函数
-    //返回的这个函数是 function () {return counter += 1;}，通过表达式赋给了add,相当于add是函数对象内容是return counter += 1;
+        <p>##dev.server.js 文件说明（附模拟API方法）<br>    /*</p>
+<pre><code> * npm run dev 调试执行文件，主要用于开发环境
+ * 建议先查阅webapck.dev.conf.js  ../config/index.js
+*/
 
-add();    //执行add函数，即function () {return counter += 1;}
-add();
-add();    //所以每次调用add()都是加1，
+// npm和node版本检查
+require(‘./check-versions‘)()
 
+var config = require(‘../config‘)
+// 下面表示如果如果没有定义全局变量NODE_ENV，则将NODE_ENV设置为&quot;development&quot;
+if (!process.env.NODE_ENV) {
+  process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
+}
 
-// 计数器为 3
-</code></pre>   
+var opn = require(‘opn‘) // opn插件是用来打开特定终端的，此文件用来在默认浏览器中打开链接 opn(url)
+var path = require(‘path‘)
+var express = require(‘express‘) // nodejs开发框架express，用来简化操作，可以当做一个功能强大的http-server
+var webpack = require(‘webpack‘)
+var proxyMiddleware = require(‘http-proxy-middleware‘) // http中间代理插件，此插件是用来代理请求的只能用于开发环境，目的主要是解决跨域请求后台api
+var webpackConfig = process.env.NODE_ENV === ‘testing‘
+  ? require(‘./webpack.prod.conf‘)
+  : require(‘./webpack.dev.conf‘)
 
-<p>变量 add 指定了函数自我调用的返回字值。<br>自我调用函数只执行一次。设置计数器为 0。并返回函数表达式。<br>add变量可以作为一个函数使用。                                 **非常棒的部分是它可以访问函数上一层作用域的计数器。<br>这个叫作 JavaScript 闭包。它使得函数拥有私有变量变成可能。<br>计数器受匿名函数的作用域保护，只能通过 add 方法修改。   </p>
-<p>闭包就是一个函数引用另一个函数的变量，因为变量被引用着所以不会被回收，因此可以用来封装一个私有变量。这是优点也是缺点，不必要的闭包只会增加内存消耗。<br>或者说闭包就是子函数可以使用父函数的局部变量，还有父函数的参数。   </p>
+// default port where dev server listens for incoming traffic
+// 下面是express监听的端口号，因为没有设置process.env.PORT，所以下面监听的就是config.dev.port即8080
+// 需要自定义设置端口号，可以修改根目录下的package.json中的dev脚本，加上 set PORT=端口号&amp;&amp;
+var port = process.env.PORT || config.dev.port
+// automatically open browser, if not set will be false
+// 默认打开浏览器，!!强制转成Boolean值，防止后续用到这个变量的地方可能出问题
+var autoOpenBrowser = !!config.dev.autoOpenBrowser
+// Define HTTP proxies to your custom API backend
+// https://github.com/chimurai/http-proxy-middleware
+// 配置反向代理的配置数据
+var proxyTable = config.dev.proxyTable
+
+// 创建express实例       **这里开始较为常用**
+var app = express()
+// ※※※ Use express.Router to mock api by SmileSmith ※※※
+// ※※※ 用express的router方法来mock发布一些资源 ※※※
+var mockRoutes = express.Router()
+mockRoutes.post(‘/getCurrentPeroid‘, function (req, res) {
+  res.json({
+errno: 0 ,
+data: require(‘../mock/data.currentperoid.json‘)
+  });
+})
+app.use(‘/api‘, mockRoutes) //api开头的请求用mock数据返回
+
+// 把配置参数传递到webpack方法中，返回一个编译对象，这个编译对象上面有很多属性，建议看webpack官方文档
+// 这里主要是用到里面的状态函数 如compilation，compile，after-emit这类的
+var compiler = webpack(webpackConfig)
+
+// 下面是webpack-dev-middleware和webpack-hot-middleware两兄弟，这两个是黄金组合
+var devMiddleware = require(‘webpack-dev-middleware‘)(compiler, {
+  publicPath: webpackConfig.output.publicPath, // 以webpack编译后的内容处理发布地址（/）的请求
+  quiet: true // 使用friendly-errors-webpack-plugin插件这个必须设置为true，具体看wepback-dev-config.js
+})
+
+var hotMiddleware = require(‘webpack-hot-middleware‘)(compiler, {
+  log: () =&gt; {}
+})
+// force page reload when html-webpack-plugin template changes
+compiler.plugin(‘compilation‘, function (compilation) {
+  compilation.plugin(‘html-webpack-plugin-after-emit‘, function (data, cb) { // webpack任何插件都可以使用这种方式，里面可以传递钩子函数，用来在插件各个阶段做特殊处理，钩子函数种类很多
+hotMiddleware.publish({ action: ‘reload‘ }) // 当插件html-webpack-plugin产出完成之后，强制刷新浏览器
+cb()
+  })
+})
+
+// proxy api requests
+// 下面是代理表的处理方法，请关注../config/index.js中开发环境proxyTab中的配置
+Object.keys(proxyTable).forEach(function (context) {
+  var options = proxyTable[context]
+  if (typeof options === ‘string‘) {
+options = { target: options }
+  }
+  app.use(proxyMiddleware(options.filter || context, options))
+})
+
+// handle fallback for HTML5 history API
+// 使用H5的history来做返回，而不是浏览器url
+// 用来解决单页面应用，点击刷新按钮和通过其他search值定位页面的404错误
+app.use(require(‘connect-history-api-fallback‘)())
+
+// serve webpack bundle output
+// 让express用上webpack输出的模块中间件
+app.use(devMiddleware)
+
+// enable hot-reload and state-preserving
+// compilation error display
+// 让express用上webpack输出的热加载中间件
+app.use(hotMiddleware)
+
+// serve pure static assets
+// 让express用上webpack输出在static中的静态文件
+var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
+app.use(staticPath, express.static(‘./static‘))
+
+var uri = ‘http://localhost:‘ + port // 这个port上面提到，默认8080
+
+//定义一个Promise用于返回，定义一个_resolve用于编译完成时的回调里面调用
+var _resolve
+var readyPromise = new Promise(resolve =&gt; {
+  _resolve = resolve
+})
+
+console.log(‘&gt; Starting dev server...‘)
+// 等待模块编译完成就可以打开浏览器
+devMiddleware.waitUntilValid(() =&gt; {
+  console.log(‘&gt; Listening at ‘ + uri + ‘\n‘)
+  // when env is testing, don‘t need open it
+  if (autoOpenBrowser &amp;&amp; process.env.NODE_ENV !== ‘testing‘) {
+opn(uri)
+  }
+  _resolve() // readyPromise就可以返回resolve
+})
+
+// node.js监听端口
+var server = app.listen(port)
+
+module.exports = {
+  ready: readyPromise, // （其它人）调用ready()，就能拿到一个promise对象
+  close: () =&gt; {
+server.close()
+  }
+}
+</code></pre><p>参考：<a href="http://www.cnblogs.com/ye-hcj/archive/2017/06.html" target="_blank" rel="noopener">http://www.cnblogs.com/ye-hcj/archive/2017/06.html</a></p>
+<hr>
+<p>在创建完express实例之后，可以自己模拟后端API。<br>只需要相应的json文件，搭配上<strong>express.Router()</strong>，就可以在运行端口模拟后台API，获取数据，用于前端开发学习<br>记得加上<code>app.use(/* apiRoutes */)</code></p>
+<pre><code>var app = express()
+
+var appData = require(&apos;../data.json&apos;);
+var seller = appData.seller;
+var goods = appData.goods;
+var ratings = appData.ratings;
+
+var apiRoutes = express.Router();
+
+apiRoutes.get(&apos;/seller&apos;,function(req,res){
+  res.json({
+errno:0,
+data:seller,
+  });
+});
+
+apiRoutes.get(&apos;/goods&apos;,function(req,res){
+  res.json({
+errno:0,
+data:goods,
+  });
+});
+
+apiRoutes.get(&apos;/ratings&apos;,function(req,res){
+  res.json({
+errno:0,
+data:ratings,
+  });
+});
+
+app.use(&apos;/api&apos;,apiRoutes);
+</code></pre><p>在浏览器中通过<code>http://localhost:8080/api/seller</code>访问</p>
 
       
     </div>
@@ -368,8 +512,8 @@ add();    //所以每次调用add()都是加1，
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/12/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/12/17/易忘面试题目简答/" rel="next" title="易忘基础知识#1">
+                <i class="fa fa-chevron-left"></i> 易忘基础知识#1
               </a>
             
           </div>
@@ -377,10 +521,6 @@ add();    //所以每次调用add()都是加1，
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/12/懒加载/" rel="prev" title="懒加载与瀑布流">
-                懒加载与瀑布流 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -690,9 +830,9 @@ add();    //所以每次调用add()都是加1，
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/12/12/个人闭包理解/';
-          this.page.identifier = '2017/12/12/个人闭包理解/';
-          this.page.title = '个人闭包理解';
+          this.page.url = 'http://yoursite.com/2017/12/19/webpack-dev.server.js(附本地模拟API)/';
+          this.page.identifier = '2017/12/19/webpack-dev.server.js(附本地模拟API)/';
+          this.page.title = 'webpack-dev.server.js(附本地模拟API方法)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://tmy.disqus.com/embed.js';
