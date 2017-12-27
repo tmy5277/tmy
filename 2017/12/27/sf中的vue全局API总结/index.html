@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="knowledge,vue," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="带图原文链接地址：http://www.cnblogs.com/douyae…1.extend用于创建一个子类Vue,用$mount来挂载 &amp;lt;body&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; const app=Vue.extend({ template:&amp;apos;&amp;lt;p&amp;gt;{{a}} {{b}}">
+<meta name="keywords" content="knowledge,vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sf中vue全局API总结">
+<meta property="og:url" content="http://yoursite.com/2017/12/27/sf中的vue全局API总结/index.html">
+<meta property="og:site_name" content="MY BLOG">
+<meta property="og:description" content="带图原文链接地址：http://www.cnblogs.com/douyae…1.extend用于创建一个子类Vue,用$mount来挂载 &amp;lt;body&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; const app=Vue.extend({ template:&amp;apos;&amp;lt;p&amp;gt;{{a}} {{b}}">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-27T09:40:01.622Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sf中vue全局API总结">
+<meta name="twitter:description" content="带图原文链接地址：http://www.cnblogs.com/douyae…1.extend用于创建一个子类Vue,用$mount来挂载 &amp;lt;body&amp;gt; &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; const app=Vue.extend({ template:&amp;apos;&amp;lt;p&amp;gt;{{a}} {{b}}">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/27/sf中的vue全局API总结/"/>
+
+
+
+
+
+  <title>sf中vue全局API总结 | MY BLOG</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MY BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/27/sf中的vue全局API总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tmy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MY BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">sf中vue全局API总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-27T17:38:06+08:00">
+                2017-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/27/sf中的vue全局API总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/27/sf中的vue全局API总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>带图原文链接地址：<a href="http://www.cnblogs.com/douyae" target="_blank" rel="noopener">http://www.cnblogs.com/douyae</a>…<br>1.<code>extend</code>用于创建一个子类Vue,用$mount来挂载</p>
+<pre><code>&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+const app=Vue.extend({
+template:&apos;&lt;p&gt;{{a}} {{b}} {{c}}&lt;/p&gt;&apos;,
+data:function(){
+return {
+a:&apos;Welcome&apos;,
+b:&quot;To&quot;,
+c:&quot;BeiJing&quot;
+}
+}
+});
+new app().$mount(&quot;#app&quot;)
+
+&lt;/script&gt;
+&lt;/body&gt;
+</code></pre><p>2.<code>Vue.nextTick([callback,context])</code>在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Title&lt;/title&gt;
+&lt;script src=&quot;lib/Vue/vue.development.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+&lt;button @click=&quot;getTag&quot;&gt;获取标签内容&lt;/button&gt;
+&lt;h1&gt;{{message}}&lt;/h1&gt;
+&lt;/div&gt;
+&lt;script&gt;
+var app=new Vue({
+el:&quot;#app&quot;,
+data:{
+message:&quot;我爱北京天安门&quot;
+},
+methods:{
+getTag:function(){
+   this.message=&apos;我爱我家&apos;;
+console.log(document.querySelector(&apos;h1&apos;).innerHTML)
+
+}
+}
+});
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>我们可以发现视图更新以后拿到的并不是更新后的innerHTML，因为dom结构更新是一个异步事件</p>
+<p>再看下面的例子</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Title&lt;/title&gt;
+&lt;script src=&quot;lib/Vue/vue.development.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+&lt;button @click=&quot;getTag&quot;&gt;获取标签内容&lt;/button&gt;
+&lt;h1&gt;{{message}}&lt;/h1&gt;
+&lt;/div&gt;
+&lt;script&gt;
+var app=new Vue({
+el:&quot;#app&quot;,
+data:{
+message:&quot;我爱北京天安门&quot;
+},
+methods:{
+getTag:function(){
+   this.message=&apos;我爱我家&apos;;
+   this.$nextTick(function(){
+   console.log(document.querySelector(&apos;h1&apos;).innerHTML)
+   })
+
+}
+}
+});
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>这样它就会等dom结构更新完成后再去获取更新后的innerHTML值，</p>
+<p>3.<code>Vue.set(target,key,value)</code>普通的情况下对Vue实例里面的数据进行更改，数据改掉了，但是呈现在页面的视图并没有发生变化，所以借用该方法视图也会跟着刷新</p>
+<p>普通方式视图并没有刷新</p>
+<pre><code>&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+   var app=new Vue({
+   el:&quot;#app&quot;,
+   data:{
+   arr:[&apos;北京&apos;,&apos;上海&apos;,&apos;天津&apos;,&apos;重庆&apos;]
+   }
+   });
+app.arr[0]=&apos;北京天安门&apos;;
+&lt;/script&gt;
+&lt;/body&gt;
+</code></pre><p>set方式视图会刷新</p>
+<pre><code>&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+&lt;ul&gt;
+&lt;li v-for=&quot;item in arr&quot;&gt;{{item}}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;script&gt;
+   var app=new Vue({
+   el:&quot;#app&quot;,
+   data:{
+   arr:[&apos;北京&apos;,&apos;上海&apos;,&apos;天津&apos;,&apos;重庆&apos;]
+   }
+   });
+Vue.set(app.arr,0,&apos;北京天安门&apos;);
+&lt;/script&gt;
+&lt;/body&gt;
+</code></pre><p>4.<code>Vue.delete(target,key)</code>用法和原理与set添加元素是一样的道理</p>
+<pre><code>&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+&lt;ul&gt;
+&lt;li v-for=&quot;(val,key) in obj&quot;&gt;{{key}}----{{val}}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;script&gt;
+   var app=new Vue({
+   el:&quot;#app&quot;,
+   data:{
+   obj:{name:&apos;张三&apos;,sex:&apos;男&apos;,hobby:&apos;睡大觉&apos;}
+   }
+   });
+Vue.delete(app.obj,&apos;hobby&apos;);
+&lt;/script&gt;
+&lt;/body&gt;
+</code></pre><p>5.<code>Vue.directive(id,[definition])</code>指令函数，定义了以下几个钩子，每一个钩子都有参数el,指的是绑定的元素</p>
+<pre><code>// 注册
+Vue.directive(&apos;my-directive&apos;, {
+  bind: function () {},
+  inserted: function () {},
+  update: function () {},
+  componentUpdated: function () {},
+  unbind: function () {}
+})
+// 注册 (指令函数)
+Vue.directive(&apos;my-directive&apos;, function () {
+  // 这里将会被 `bind` 和 `update` 调用
+})
+// getter，返回已注册的指令
+var myDirective = Vue.directive(&apos;my-directive&apos;)
+</code></pre><p><code>bind</code>: 只调用一次，指令第一次绑定到元素时调用，用这个钩子函数可以定义一个在绑定时执行一次的初始化动作。</p>
+<pre><code>&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+ &lt;div v-drop&gt;Hello Vue!&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+Vue.directive(&apos;drop&apos;,{
+bind:function(el){
+el.style.color=&apos;red&apos;;
+el.style.fontWeight=&apos;bold&apos;
+}
+});
+var app=new Vue({
+el:&apos;#app&apos;
+})
+&lt;/script&gt;
+&lt;/body&gt;
+</code></pre><p><code>inserted</code>: 被绑定元素插入父节点时调用（父节点存在即可调用，不必存在于 document 中）</p>
+<p>一个照片墙拖曳例子</p>
+<pre><code>&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Title&lt;/title&gt;
+&lt;style&gt;
+.box{
+width: 800px;
+height: 800px;
+position: relative;
+background-color: #000000;
+margin: auto;
+}
+.img{
+position: absolute;
+left:0;
+top:0;
+transform: rotateZ(0deg);
+}
+&lt;/style&gt;
+&lt;script src=&quot;lib/Vue/vue.development.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+&lt;div class=&quot;box&quot;&gt;
+&lt;img src=&quot;../QQxiu/pic/21.gif&quot; alt=&quot;&quot; class=&quot;img&quot; v-ball&gt;
+&lt;img src=&quot;../QQxiu/pic/31.gif&quot; alt=&quot;&quot; class=&quot;img&quot; v-ball&gt;
+&lt;img src=&quot;../QQxiu/pic/2132.gif&quot; alt=&quot;&quot; class=&quot;img&quot; v-ball&gt;
+&lt;img src=&quot;../QQxiu/pic/21214.gif&quot; alt=&quot;&quot; class=&quot;img&quot; v-ball&gt;
+&lt;img src=&quot;../QQxiu/pic/24.gif&quot; alt=&quot;&quot; class=&quot;img&quot; v-ball&gt;
+&lt;img src=&quot;../QQxiu/pic/3214.gif&quot; alt=&quot;&quot; class=&quot;img&quot; v-ball&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+Vue.directive(&apos;ball&apos;,{
+inserted:function(el){
+var i=0;
+el.onclick=function(e){
+i+=10;
+   el.style.transform=&quot;rotateZ(&quot;+i+&quot;deg)&quot;
+};
+el.onmousedown=function(e){
+var l=e.clientX-el.offsetLeft;
+var t=e.clientY-el.offsetTop;
+document.onmousemove=function(e){
+el.style.left=(e.clientX-l)+&apos;px&apos;;
+el.style.top=(e.clientY-t)+&apos;px&apos;
+};
+el.onmouseup=function(){
+document.onmousemove=null;
+el.onmouseup=null;
+}
+}
+}
+});
+var app=new Vue({
+el:&apos;#app&apos;
+})
+&lt;/script&gt;
+&lt;/body&gt;
+</code></pre><p><code>update</code>: 被绑定元素所在的模板更新时调用，而不论绑定值是否变化。通过比较更新前后的绑定值，可以忽略不必要的模板更新（详细的钩子函数参数见下）。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Title&lt;/title&gt;
+&lt;script src=&quot;lib/Vue/vue.development.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;style&gt;
+#text{
+width: 100px;
+height:100px;
+resize: none;
+}
+&lt;/style&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+&lt;textarea  id=&quot;text&quot; v-model=&quot;a&quot; v-box&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+&lt;script&gt;
+Vue.directive(&apos;box&apos;,{
+update:function(el){
+let color1=Math.ceil(Math.random()*225);
+let color2=Math.ceil(Math.random()*225);
+let color3=Math.ceil(Math.random()*225);
+el.style.backgroundColor=&apos;rgb(&apos;+color1+&quot;,&quot;+color2+&apos;,&apos;+color3+&quot;)&quot;
+}
+});
+var app=new Vue({
+el:&apos;#app&apos;,
+data:{
+a:&quot;&quot;
+}
+})
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p><code>componentUpdated</code>: 被绑定元素所在模板完成一次更新周期时调用。</p>
+<p><code>unbind</code>: 只调用一次， 指令与元素解绑时调用。</p>
+<p>6.<code>Vue.filter(id,[definition])</code>注册或获取全局过滤器，主要用于在实例里面的数据不改变的情况下，在页面对渲染进dom的数据进行过滤处理，和angular中的过滤器用法一样</p>
+<pre><code>// 注册
+Vue.filter(&apos;my-filter&apos;, function (value) {
+// 返回处理后的值
+})
+// getter，返回已注册的过滤器
+var myFilter = Vue.filter(&apos;my-filter&apos;)
+
+简单全局过滤器和局部过滤器例子↓
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Title&lt;/title&gt;
+&lt;script src=&quot;lib/Vue/vue.development.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+&lt;h3&gt;数字变美元&lt;/h3&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;数字变美元&quot; v-model=&quot;num&quot;&gt;
+&lt;span&gt;{{num|money}}&lt;/span&gt;
+&lt;h3&gt;内容反转&lt;/h3&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;内容反转&quot; v-model=&quot;message&quot;&gt;
+&lt;span&gt;{{message|reverse}}&lt;/span&gt;
+&lt;/div&gt;
+&lt;script&gt;
+Vue.filter(&quot;money&quot;,
+   function(value){
+   return &quot;$&quot;+value
+});
+var app=new Vue({
+el:&quot;#app&quot;,
+data:{
+num:100,
+message:&quot;&quot;
+},
+filters:{
+reverse:function(value){
+return value.split(&apos;&apos;).reverse().join(&apos;&apos;)
+}
+}
+})
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>过滤器可以管道式连接过滤</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Title&lt;/title&gt;
+&lt;script src=&quot;lib/Vue/vue.development.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;
+&lt;h3&gt;过滤字符串中的数字，并将剩余部分以数组形式输出&lt;/h3&gt;
+&lt;input type=&quot;text&quot; placeholder=&quot;输入字符串&quot; v-model=&quot;message&quot;&gt;
+&lt;span&gt;{{message|delNum|arr}}&lt;/span&gt;
+&lt;/div&gt;
+&lt;script&gt;
+Vue.filter(&quot;delNum&quot;,
+   function(value){
+   return value.replace(/[0-9]/g,&apos;&apos;)
+});
+Vue.filter(&quot;arr&quot;,
+function(value){
+   return  value.split(&apos;&apos;)
+}
+);
+var app=new Vue({
+el:&quot;#app&quot;,
+data:{
+message:&quot;&quot;
+}
+})
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>7.<code>Vue.component()</code>可以查看vue2.0官方文档  <a href="https://cn.vuejs.org/v2/api/index.html" target="_blank" rel="noopener">这里</a></p>
+<p>8.<code>Vue.version</code>用于获取当前Vue的版本号</p>
+<p>9.<code>Vue.use</code>用于安装Vue插件</p>
+<p>10.对于<code>Vue.mixin</code>的理解，引用别人的博文</p>
+<pre><code>vue中mixin的一点理解
+
+vue中提供了一种混合机制--mixins，用来更高效的实现组件内容的复用。  
+最开始我一度认为这个和组件好像没啥区别。。后来发现错了。下面我们来看看mixins和普通情况下引入组件有什么区别？
+
+组件在引用之后相当于在父组件内开辟了一块单独的空间，来根据父组件props过来的值进行相应的操作，单本质上两者还是泾渭分明，相对独立。  
+而mixins则是在引入组件之后，则是  
+
+将组件内部的内容如data等方法、method等属性与父组件相应内容进行合并  
+相当于在引入后，父组件的各种属性方法都被扩充了。
+
+单纯组件引用：  
+ 父组件 + 子组件 &gt;&gt;&gt; 父组件 + 子组件  
+mixins：  
+ 父组件 + 子组件 &gt;&gt;&gt; new父组件 
+
+
+值得注意的是，在使用mixins时，父组件和子组件同时拥有着子组件内的各种属性方法，  
+但这并不意味着他们同时共享、同时处理这些变量，两者之间除了合并，是不会进行任何通信的。  
+最开始看到mixins的时候，天真的我似乎看到了一种向下的类似vuex的数据共享方案，心情十分激动啊。  
+但是仔细一研究官方api和一些技术博客，才发现自己。。。天真。  
+
+我个人的拙见如下：
+    1.Vue在实例化成对象的那一刻，会通过mixin混合机制将方法直接添加到实例里面去
+    2.prototype方法直接将方法添加到Vue本身的构造器里面去
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Title&lt;/title&gt;
+&lt;script src=&quot;lib/Vue/vue.development.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;app1&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+Vue.mixin({
+created:function(){
+this.hello()
+},
+methods:{
+hello:function(){
+console.log(&apos;这是混合器添加的hello方法&apos;)
+},
+say:function(){
+console.log(&apos;这是混合器添加的say方法&apos;)
+}
+}
+});
+Vue.prototype.myapp=function(){
+console.log(&quot;我是外来入侵者&quot;)
+};
+var app=new Vue({
+el:&quot;#app&quot;,
+methods:{
+lsit:function(){
+console.log(&apos;这是app实例本身的list方法&apos;)
+},
+say:function(){
+console.log(&apos;这是app实例本身的say方法&apos;)
+}
+}
+
+});
+var app1=new Vue({
+el:&quot;#app1&quot;,
+});
+app.hello();
+app.lsit();
+app.say();
+app1.hello();
+app1.say();
+app.myapp();
+console.log(app.__proto__)
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+输出结果：
+
+大家可以看到
+
+第一个输出的是混合器的hello方法，此刻刚开始创建实例app
+
+第二个属于混合器的hello方法，因为app本身实例没有这个方法，所以是混合器为其添加的
+
+第三个输出的是混合器的hello方法，此刻刚开始创建实例app1
+
+第四个输出的是app本身的list方法
+
+第五个输出的是app实例的say方法。因为app实例中用有该方法，会将混合器添加的say方法覆盖掉
+
+对于六和七由于app1没有自己的hello和say方法，所以只能用混合器为他添加的方法
+
+第八个属于Vue原型里面我们添加进去的myapp方法
+
+我们再看一下Vue原型对象app.__proto__
+
+我们发现里面并没有混合方法，所以混合方法在创建实例对象的那一刻添加到实例对象里面了，但是里面却有myapp方法
+</code></pre><p>11.<code>Vue.compile()</code>在 render 函数中编译模板字符串。只在独立构建时有效</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/knowledge/" rel="tag"># knowledge</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/23/js获取当前时间/" rel="next" title="js获取当前日期">
+                <i class="fa fa-chevron-left"></i> js获取当前日期
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="tmy" />
+            
+              <p class="site-author-name" itemprop="name">tmy</p>
+              <p class="site-description motion-element" itemprop="description">my first blog</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/tmy5277" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:13570810128@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/tmy5277" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tmy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://tmy.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/12/27/sf中的vue全局API总结/';
+          this.page.identifier = '2017/12/27/sf中的vue全局API总结/';
+          this.page.title = 'sf中vue全局API总结';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://tmy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
