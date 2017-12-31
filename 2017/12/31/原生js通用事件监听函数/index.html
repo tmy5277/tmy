@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="knowledge,javascript," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="my first blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MY BLOG">
-<meta property="og:url" content="http://yoursite.com/tags/knowledge/index.html">
+<meta name="description" content="通用addEvent() 函数 function addEvent( obj, type, fn ) {  if ( obj.attachEvent ) {   obj[&amp;apos;e&amp;apos;+type+fn] = fn;   obj[type+fn] = function(){obj[&amp;apos;e&amp;apos;+type+fn]( window.event );}   obj.attachE">
+<meta name="keywords" content="knowledge,javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebSocket">
+<meta property="og:url" content="http://yoursite.com/2017/12/31/原生js通用事件监听函数/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="my first blog">
+<meta property="og:description" content="通用addEvent() 函数 function addEvent( obj, type, fn ) {  if ( obj.attachEvent ) {   obj[&amp;apos;e&amp;apos;+type+fn] = fn;   obj[type+fn] = function(){obj[&amp;apos;e&amp;apos;+type+fn]( window.event );}   obj.attachE">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-31T08:39:31.980Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MY BLOG">
-<meta name="twitter:description" content="my first blog">
+<meta name="twitter:title" content="WebSocket">
+<meta name="twitter:description" content="通用addEvent() 函数 function addEvent( obj, type, fn ) {  if ( obj.attachEvent ) {   obj[&amp;apos;e&amp;apos;+type+fn] = fn;   obj[type+fn] = function(){obj[&amp;apos;e&amp;apos;+type+fn]( window.event );}   obj.attachE">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/knowledge/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/31/原生js通用事件监听函数/"/>
 
 
 
 
 
-  <title>标签: knowledge | MY BLOG</title>
+  <title>WebSocket | MY BLOG</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,310 +229,175 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>knowledge<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/31/原生js通用事件监听函数/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tmy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MY BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2017/12/31/原生js通用事件监听函数/" itemprop="url">
-              
-                <span itemprop="name">WebSocket</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">WebSocket</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-31T16:39:45+08:00"
-              content="2017-12-31" >
-          12-31
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-31T16:39:45+08:00">
+                2017-12-31
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/31/原生js通用事件监听函数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/31/原生js通用事件监听函数/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/31/websocket/" itemprop="url">
-              
-                <span itemprop="name">WebSocket</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-31T16:34:24+08:00"
-              content="2017-12-31" >
-          12-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/31/webapp与原生APP的优缺点/" itemprop="url">
-              
-                <span itemprop="name">webAPP与原生APP</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-31T16:30:07+08:00"
-              content="2017-12-31" >
-          12-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/27/sf中的vue全局API总结/" itemprop="url">
-              
-                <span itemprop="name">sf中vue全局API总结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-27T17:38:06+08:00"
-              content="2017-12-27" >
-          12-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/23/js获取当前时间/" itemprop="url">
-              
-                <span itemprop="name">js获取当前日期</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-23T18:29:58+08:00"
-              content="2017-12-23" >
-          12-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/22/axios基本用法/" itemprop="url">
-              
-                <span itemprop="name">axios基本用法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-22T18:15:45+08:00"
-              content="2017-12-22" >
-          12-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/22/cookie，session,sessionStorage 和 localStorage/" itemprop="url">
-              
-                <span itemprop="name">cookie，session,sessionStorage 和 localStorage 的区别</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-22T17:47:57+08:00"
-              content="2017-12-22" >
-          12-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/19/webpack-dev.server.js(附本地模拟API)/" itemprop="url">
-              
-                <span itemprop="name">webpack-dev.server.js(附本地模拟API方法)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-19T18:08:01+08:00"
-              content="2017-12-19" >
-          12-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/17/易忘面试题目简答/" itemprop="url">
-              
-                <span itemprop="name">易忘基础知识#1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-17T18:00:07+08:00"
-              content="2017-12-17" >
-          12-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/15/ajax浏览器兼容/" itemprop="url">
-              
-                <span itemprop="name">ajax-浏览器兼容</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-15T15:43:57+08:00"
-              content="2017-12-15" >
-          12-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+        <p><strong>通用addEvent() 函数</strong></p>
+<pre><code>function addEvent( obj, type, fn ) {
+ if ( obj.attachEvent ) {
+  obj[&apos;e&apos;+type+fn] = fn;
+  obj[type+fn] = function(){obj[&apos;e&apos;+type+fn]( window.event );}
+  obj.attachEvent( &apos;on&apos;+type, obj[type+fn] );
+ } else
+  obj.addEventListener( type, fn, false );
+}
+function removeEvent( obj, type, fn ) {
+ if ( obj.detachEvent ) {
+  obj.detachEvent( &apos;on&apos;+type, obj[type+fn] );
+  obj[type+fn] = null;
+ } else
+  obj.removeEventListener( type, fn, false );
+}
+</code></pre>
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/knowledge/" rel="tag"># knowledge</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/31/websocket/" rel="next" title="WebSocket">
+                <i class="fa fa-chevron-left"></i> WebSocket
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/tags/knowledge/page/2/">2</a><a class="extend next" rel="next" href="/tags/knowledge/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -538,6 +405,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -782,6 +663,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -799,6 +684,18 @@
       <script id="dsq-count-scr" src="https://tmy.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/12/31/原生js通用事件监听函数/';
+          this.page.identifier = '2017/12/31/原生js通用事件监听函数/';
+          this.page.title = 'WebSocket';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://tmy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
