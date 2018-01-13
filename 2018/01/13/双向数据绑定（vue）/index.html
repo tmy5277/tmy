@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="knowledge,vue," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="my first blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MY BLOG">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+<meta name="description" content="###几种实现双向绑定的做法   目前几种主流的mvc(vm)框架都实现了单向数据绑定，而双向数据绑定无非就是在单向绑定的基础上给可输入元素（input、textare等）添加了change(input)事件，来动态修改model和 view。   实现数据绑定的做法有大致如下几种： 发布者-订阅者模式（backbone.js） 脏值检查（angular.js）  数据劫持（vue.js）">
+<meta name="keywords" content="knowledge,vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="双向数据绑定-vue">
+<meta property="og:url" content="http://yoursite.com/2018/01/13/双向数据绑定（vue）/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="my first blog">
+<meta property="og:description" content="###几种实现双向绑定的做法   目前几种主流的mvc(vm)框架都实现了单向数据绑定，而双向数据绑定无非就是在单向绑定的基础上给可输入元素（input、textare等）添加了change(input)事件，来动态修改model和 view。   实现数据绑定的做法有大致如下几种： 发布者-订阅者模式（backbone.js） 脏值检查（angular.js）  数据劫持（vue.js）">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-13T05:39:54.977Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MY BLOG">
-<meta name="twitter:description" content="my first blog">
+<meta name="twitter:title" content="双向数据绑定-vue">
+<meta name="twitter:description" content="###几种实现双向绑定的做法   目前几种主流的mvc(vm)框架都实现了单向数据绑定，而双向数据绑定无非就是在单向绑定的基础上给可输入元素（input、textare等）添加了change(input)事件，来动态修改model和 view。   实现数据绑定的做法有大致如下几种： 发布者-订阅者模式（backbone.js） 脏值检查（angular.js）  数据劫持（vue.js）">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/13/双向数据绑定（vue）/"/>
 
 
 
 
 
-  <title>归档 | MY BLOG</title>
+  <title>双向数据绑定-vue | MY BLOG</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,411 +229,180 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/13/双向数据绑定（vue）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tmy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MY BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">双向数据绑定-vue</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-13T13:38:12+08:00">
+                2018-01-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 17 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/13/双向数据绑定（vue）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/01/13/双向数据绑定（vue）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/31/新的一年/" itemprop="url">
-              
-                <span itemprop="name">新的一年</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-31T16:45:03+08:00"
-              content="2017-12-31" >
-          12-31
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/31/原生js通用事件监听函数/" itemprop="url">
-              
-                <span itemprop="name">原生js通用事件监听函数</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-31T16:39:45+08:00"
-              content="2017-12-31" >
-          12-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/31/websocket/" itemprop="url">
-              
-                <span itemprop="name">WebSocket</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-31T16:34:24+08:00"
-              content="2017-12-31" >
-          12-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>###几种实现双向绑定的做法  </p>
+<p>目前几种主流的mvc(vm)框架都实现了单向数据绑定，而双向数据绑定无非就是在单向绑定的基础上给可输入元素（input、textare等）添加了change(input)事件，来动态修改model和 view。  </p>
+<p>实现数据绑定的做法有大致如下几种：</p>
+<p>发布者-订阅者模式（backbone.js）</p>
+<p>脏值检查（angular.js） </p>
+<p>数据劫持（vue.js）  </p>
+<hr>
+<p>发布者-订阅者模式: 一般通过sub, pub的方式实现数据和视图的绑定监听，更新数据方式通常做法是 vm.set(‘property’, value)，这里有篇文章讲的比较详细，有兴趣可点这里</p>
+<p>这种方式现在毕竟太low了，我们更希望通过 vm.property = value 这种方式更新数据，同时自动更新视图，于是有了下面两种方式</p>
+<p>脏值检查: angular.js 是通过脏值检测的方式比对数据是否有变更，来决定是否更新视图，最简单的方式就是通过 setInterval() 定时轮询检测数据变动，当然Google不会这么low，angular只有在指定的事件触发时进入脏值检测，大致如下：</p>
+<p>DOM事件，譬如用户输入文本，点击按钮等。( ng-click )<br>XHR响应事件 ( $http )<br>浏览器Location变更事件 ( $location )<br>Timer事件( $timeout , $interval )<br>执行 $digest() 或 $apply()<br>数据劫持: vue.js 则是采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。  </p>
+<hr>
+<p>###Vue双向数据绑定  </p>
+<p>已经了解到vue是通过数据劫持的方式来做数据绑定的，其中最核心的方法便是通过Object.defineProperty()来实现对属性的劫持，达到监听数据变动的目的，无疑这个方法是本文中最重要、最基础的内容之一，如果不熟悉defineProperty，<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener">这里</a>  </p>
+<p>整理了一下，要实现mvvm的双向绑定，就必须要实现以下几点：  </p>
+<ol>
+<li>实现一个数据监听器Observer，能够对数据对象的所有属性进行监听，如有变动可拿到最新值并通知订阅者</li>
+<li>实现一个指令解析器Compile，对每个元素节点的指令进行扫描和解析，根据指令模板替换数据，以及绑定相应的更新函数</li>
+<li>实现一个Watcher，作为连接Observer和Compile的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数，从而更新视图</li>
+<li>mvvm入口函数，整合以上三者</li>
+</ol>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/31/webapp与原生APP的优缺点/" itemprop="url">
-              
-                <span itemprop="name">webAPP与原生APP</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-31T16:30:07+08:00"
-              content="2017-12-31" >
-          12-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/27/sf中的vue全局API总结/" itemprop="url">
-              
-                <span itemprop="name">sf中vue全局API总结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-27T17:38:06+08:00"
-              content="2017-12-27" >
-          12-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/23/js获取当前时间/" itemprop="url">
-              
-                <span itemprop="name">js获取当前日期</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-23T18:29:58+08:00"
-              content="2017-12-23" >
-          12-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/22/axios基本用法/" itemprop="url">
-              
-                <span itemprop="name">axios基本用法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-22T18:15:45+08:00"
-              content="2017-12-22" >
-          12-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/22/cookie，session,sessionStorage 和 localStorage/" itemprop="url">
-              
-                <span itemprop="name">cookie，session,sessionStorage 和 localStorage 的区别</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-22T17:47:57+08:00"
-              content="2017-12-22" >
-          12-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/19/webpack-dev.server.js(附本地模拟API)/" itemprop="url">
-              
-                <span itemprop="name">webpack-dev.server.js(附本地模拟API方法)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-19T18:08:01+08:00"
-              content="2017-12-19" >
-          12-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/17/易忘面试题目简答/" itemprop="url">
-              
-                <span itemprop="name">易忘基础知识#1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-17T18:00:07+08:00"
-              content="2017-12-17" >
-          12-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/knowledge/" rel="tag"># knowledge</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/09/http2.0 头部压缩/" rel="next" title="http2.0头部压缩">
+                <i class="fa fa-chevron-left"></i> http2.0头部压缩
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2017/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -639,6 +410,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -679,7 +464,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -883,6 +668,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -900,6 +689,18 @@
       <script id="dsq-count-scr" src="https://tmy.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/01/13/双向数据绑定（vue）/';
+          this.page.identifier = '2018/01/13/双向数据绑定（vue）/';
+          this.page.title = '双向数据绑定-vue';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://tmy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
