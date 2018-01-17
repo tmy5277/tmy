@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="MY BLOG">
 <meta property="og:description" content="什么是头部压缩？为什么要头部压缩？ http请求和响应都是由 状态行、请求/响应头部、消息主题 三部分组成的。一般而言，消息主体都会经过gzip压缩，或者本身传输的就是压缩过后的二进制文件（如图片、音频等），但是状态行和头部多是没有经过任何压缩，而是直接以纯文本的方式进行传输的。 　　而随着web功能越来越复杂，请求数量越来越多，随之而来的就是头部的流量越来越多，并且在建立初次链接之后的链接也要发">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-17T07:01:19.387Z">
+<meta property="og:updated_time" content="2018-01-17T07:09:29.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http2.0头部压缩">
 <meta name="twitter:description" content="什么是头部压缩？为什么要头部压缩？ http请求和响应都是由 状态行、请求/响应头部、消息主题 三部分组成的。一般而言，消息主体都会经过gzip压缩，或者本身传输的就是压缩过后的二进制文件（如图片、音频等），但是状态行和头部多是没有经过任何压缩，而是直接以纯文本的方式进行传输的。 　　而随着web功能越来越复杂，请求数量越来越多，随之而来的就是头部的流量越来越多，并且在建立初次链接之后的链接也要发">
@@ -327,7 +327,7 @@
 <p>　　因此，http2提出了对请求和响应的头部进行压缩，即不再只是压缩主题部分，这种压缩方式就是HAPCK — 其设计简单而灵活。</p>
 <p>　　通过压缩，头部大小可以减少一半之多，如果后面重复发送请求，那么可能压缩后的头部大小只有原始大小的 1/10。</p>
 <hr>
-<p>一些术语<br>Header Field（头部域）： 一个名值对。 名字和值都是以八进制存在的。</p>
+<h4 id="一些术语"><a href="#一些术语" class="headerlink" title="一些术语"></a>一些术语</h4><p>Header Field（头部域）： 一个名值对。 名字和值都是以八进制存在的。</p>
 <p>Dynamic Table（动态表）： 动态表是用于存放含有索引值的头部域的。 这个表示动态变化的而且针对于编码或者解码的内容的。 </p>
 <p>Static Table（静态表）： 静态表只要用于存放含有索引值的频繁出现的头部域的。这个表是有序的、只读、可访问的而且在几乎所有的编码或者解码的内容中可以共享的。</p>
 <p>Header List(头部列表):头部列表是头部域的有序集合一起被编码的而且可能含有重复头部域。一个完整的含有Http/2头部快的头部域就是一个头部列表。</p>
@@ -534,7 +534,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是头部压缩？为什么要头部压缩？"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4EC0;&#x4E48;&#x662F;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;"></a>&#x4EC0;&#x4E48;&#x662F;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是头部压缩？为什么要头部压缩？"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4EC0;&#x4E48;&#x662F;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;"></a>&#x4EC0;&#x4E48;&#x662F;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一些术语"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x4E00;&#x4E9B;&#x672F;&#x8BED;" class="headerlink" title="&#x4E00;&#x4E9B;&#x672F;&#x8BED;"></a>&#x4E00;&#x4E9B;&#x672F;&#x8BED;</span></a></li></ol></div>
             
 
           </div>
