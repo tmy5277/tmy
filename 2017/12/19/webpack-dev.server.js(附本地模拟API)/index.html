@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="##dev.server.js 文件说明（附模拟API方法）    /*  * npm run dev 调试执行文件，主要用于开发环境  * 建议先查阅webapck.dev.conf.js  ../config/index.js */  // npm和node版本检查 require(‘./check-versions‘)()  var config = require(‘../config‘)">
+<meta name="description" content="dev.server.js 文件说明（附模拟API方法）/*  * npm run dev 调试执行文件，主要用于开发环境  * 建议先查阅webapck.dev.conf.js  ../config/index.js */  // npm和node版本检查 require(‘./check-versions‘)()  var config = require(‘../config‘) // 下面">
 <meta name="keywords" content="knowledge,webpack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack-dev.server.js(附本地模拟API方法)">
 <meta property="og:url" content="http://yoursite.com/2017/12/19/webpack-dev.server.js(附本地模拟API)/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="##dev.server.js 文件说明（附模拟API方法）    /*  * npm run dev 调试执行文件，主要用于开发环境  * 建议先查阅webapck.dev.conf.js  ../config/index.js */  // npm和node版本检查 require(‘./check-versions‘)()  var config = require(‘../config‘)">
+<meta property="og:description" content="dev.server.js 文件说明（附模拟API方法）/*  * npm run dev 调试执行文件，主要用于开发环境  * 建议先查阅webapck.dev.conf.js  ../config/index.js */  // npm和node版本检查 require(‘./check-versions‘)()  var config = require(‘../config‘) // 下面">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-27T09:46:13.589Z">
+<meta property="og:updated_time" content="2018-01-17T07:03:42.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack-dev.server.js(附本地模拟API方法)">
-<meta name="twitter:description" content="##dev.server.js 文件说明（附模拟API方法）    /*  * npm run dev 调试执行文件，主要用于开发环境  * 建议先查阅webapck.dev.conf.js  ../config/index.js */  // npm和node版本检查 require(‘./check-versions‘)()  var config = require(‘../config‘)">
+<meta name="twitter:description" content="dev.server.js 文件说明（附模拟API方法）/*  * npm run dev 调试执行文件，主要用于开发环境  * 建议先查阅webapck.dev.conf.js  ../config/index.js */  // npm和node版本检查 require(‘./check-versions‘)()  var config = require(‘../config‘) // 下面">
 
 
 
@@ -321,8 +321,8 @@
       
 
       
-        <p>##dev.server.js 文件说明（附模拟API方法）<br>    /*</p>
-<pre><code> * npm run dev 调试执行文件，主要用于开发环境
+        <h3 id="dev-server-js-文件说明（附模拟API方法）"><a href="#dev-server-js-文件说明（附模拟API方法）" class="headerlink" title="dev.server.js 文件说明（附模拟API方法）"></a>dev.server.js 文件说明（附模拟API方法）</h3><pre><code>/*
+ * npm run dev 调试执行文件，主要用于开发环境
  * 建议先查阅webapck.dev.conf.js  ../config/index.js
 */
 
@@ -449,7 +449,11 @@ server.close()
 }
 </code></pre><p>参考：<a href="http://www.cnblogs.com/ye-hcj/archive/2017/06.html" target="_blank" rel="noopener">http://www.cnblogs.com/ye-hcj/archive/2017/06.html</a></p>
 <hr>
-<p>在创建完express实例之后，可以自己模拟后端API。<br>只需要相应的json文件，搭配上<strong>express.Router()</strong>，就可以在运行端口模拟后台API，获取数据，用于前端开发学习<br>记得加上<code>app.use(/* apiRoutes */)</code></p>
+<p>在创建完express实例之后，可以自己模拟后端API。<br>只需要相应的json文件，搭配上<strong>express.Router()</strong>，就可以在运行端口模拟后台API，获取数据，用于前端开发学习      </p>
+<blockquote>
+<p>（初步学习nodejs之后，发现express.Router()不是必须的）18-1-17  </p>
+</blockquote>
+<p>记得加上<code>app.use(/* apiRoutes */)</code></p>
 <pre><code>var app = express()
 
 var appData = require(&apos;../data.json&apos;);
@@ -588,8 +592,17 @@ app.use(&apos;/api&apos;,apiRoutes);
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -621,7 +634,7 @@ app.use(&apos;/api&apos;,apiRoutes);
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -666,6 +679,22 @@ app.use(&apos;/api&apos;,apiRoutes);
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#dev-server-js-文件说明（附模拟API方法）"><span class="nav-number">1.</span> <span class="nav-text"><a href="#dev-server-js-&#x6587;&#x4EF6;&#x8BF4;&#x660E;&#xFF08;&#x9644;&#x6A21;&#x62DF;API&#x65B9;&#x6CD5;&#xFF09;" class="headerlink" title="dev.server.js &#x6587;&#x4EF6;&#x8BF4;&#x660E;&#xFF08;&#x9644;&#x6A21;&#x62DF;API&#x65B9;&#x6CD5;&#xFF09;"></a>dev.server.js &#x6587;&#x4EF6;&#x8BF4;&#x660E;&#xFF08;&#x9644;&#x6A21;&#x62DF;API&#x65B9;&#x6CD5;&#xFF09;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

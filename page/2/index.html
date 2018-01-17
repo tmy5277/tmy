@@ -1027,13 +1027,13 @@ Web Storage有两种形式：LocalStorage（本地存储）和 sessionStorage（
       
         
           
-          ##dev.server.js 文件说明（附模拟API方法）    /*
+          dev.server.js 文件说明（附模拟API方法）/*
  * npm run dev 调试执行文件，主要用于开发环境
  * 建议先查阅webapck.dev.conf.js  ../config/index.js
 */
 
 // npm和node版本检查
-require(‘./che
+require(‘./check-ver
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1170,9 +1170,9 @@ require(‘./che
       
         
           
-          ##基础知识#1ajax： 请求数据（建立HTTPrequest对象→发送请求→获取相应内容并进行操作→onreadystatechange事件）promise： 异步操作管理对象（es6）axios： ajax库（promise+ajax）
+          基础知识#1ajax： 请求数据（建立HTTPrequest对象→发送请求→获取相应内容并进行操作→onreadystatechange事件）promise： 异步操作管理对象（es6）axios： ajax库（promise+ajax）
 
-webpack： 模块化，自动整合代码，自动搞定模块依
+webpack： 模块化，自动整合代码，自动搞定模块依赖 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1309,8 +1309,7 @@ webpack： 模块化，自动整合代码，自动搞定模块依
       
         
           
-          ##懒加载的原理（更新瀑布流思路）##
-原理：先将img标签中的src链接设为同一张图片（空白图片），将其真正的图片地址存储再img标签的自定义属性中（比如data-src）。当js监听到该图片元素进入可视窗口时，即将自定义属性中的地址存储到src属性中，达到懒加载的效果。这样做能防止页面一次性向服
+          懒加载的原理（更新瀑布流思路）原理：先将img标签中的src链接设为同一张图片（空白图片），将其真正的图片地址存储再img标签的自定义属性中（比如data-src）。当js监听到该图片元素进入可视窗口时，即将自定义属性中的地址存储到src属性中，达到懒加载的效果。这样做能防止页面一次性向服务器响应大
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1447,11 +1446,10 @@ webpack： 模块化，自动整合代码，自动搞定模块依
       
         
           
-          ##个人闭包理解
-var add = (function () {
+          个人闭包理解var add = (function () {
     var counter = 0;        //只在函数自执行时执行一次
     return function () {return counter += 1;}
-})();   //最后这个括号代表着自执行函数，立即
+})();   //最后这个括号代表着自执行函数，立即执行一
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1697,7 +1695,7 @@ var add = (function () {
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

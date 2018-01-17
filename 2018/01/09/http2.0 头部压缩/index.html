@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="####什么是头部压缩？为什么要头部压缩？    http请求和响应都是由 状态行、请求/响应头部、消息主题 三部分组成的。一般而言，消息主体都会经过gzip压缩，或者本身传输的就是压缩过后的二进制文件（如图片、音频等），但是状态行和头部多是没有经过任何压缩，而是直接以纯文本的方式进行传输的。 　　而随着web功能越来越复杂，请求数量越来越多，随之而来的就是头部的流量越来越多，并且在建立初次链接之">
+<meta name="description" content="什么是头部压缩？为什么要头部压缩？ http请求和响应都是由 状态行、请求/响应头部、消息主题 三部分组成的。一般而言，消息主体都会经过gzip压缩，或者本身传输的就是压缩过后的二进制文件（如图片、音频等），但是状态行和头部多是没有经过任何压缩，而是直接以纯文本的方式进行传输的。 　　而随着web功能越来越复杂，请求数量越来越多，随之而来的就是头部的流量越来越多，并且在建立初次链接之后的链接也要发">
 <meta name="keywords" content="knowledge">
 <meta property="og:type" content="article">
 <meta property="og:title" content="http2.0头部压缩">
 <meta property="og:url" content="http://yoursite.com/2018/01/09/http2.0 头部压缩/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="####什么是头部压缩？为什么要头部压缩？    http请求和响应都是由 状态行、请求/响应头部、消息主题 三部分组成的。一般而言，消息主体都会经过gzip压缩，或者本身传输的就是压缩过后的二进制文件（如图片、音频等），但是状态行和头部多是没有经过任何压缩，而是直接以纯文本的方式进行传输的。 　　而随着web功能越来越复杂，请求数量越来越多，随之而来的就是头部的流量越来越多，并且在建立初次链接之">
+<meta property="og:description" content="什么是头部压缩？为什么要头部压缩？ http请求和响应都是由 状态行、请求/响应头部、消息主题 三部分组成的。一般而言，消息主体都会经过gzip压缩，或者本身传输的就是压缩过后的二进制文件（如图片、音频等），但是状态行和头部多是没有经过任何压缩，而是直接以纯文本的方式进行传输的。 　　而随着web功能越来越复杂，请求数量越来越多，随之而来的就是头部的流量越来越多，并且在建立初次链接之后的链接也要发">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-09T10:15:23.841Z">
+<meta property="og:updated_time" content="2018-01-17T07:01:19.387Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="http2.0头部压缩">
-<meta name="twitter:description" content="####什么是头部压缩？为什么要头部压缩？    http请求和响应都是由 状态行、请求/响应头部、消息主题 三部分组成的。一般而言，消息主体都会经过gzip压缩，或者本身传输的就是压缩过后的二进制文件（如图片、音频等），但是状态行和头部多是没有经过任何压缩，而是直接以纯文本的方式进行传输的。 　　而随着web功能越来越复杂，请求数量越来越多，随之而来的就是头部的流量越来越多，并且在建立初次链接之">
+<meta name="twitter:description" content="什么是头部压缩？为什么要头部压缩？ http请求和响应都是由 状态行、请求/响应头部、消息主题 三部分组成的。一般而言，消息主体都会经过gzip压缩，或者本身传输的就是压缩过后的二进制文件（如图片、音频等），但是状态行和头部多是没有经过任何压缩，而是直接以纯文本的方式进行传输的。 　　而随着web功能越来越复杂，请求数量越来越多，随之而来的就是头部的流量越来越多，并且在建立初次链接之后的链接也要发">
 
 
 
@@ -321,8 +321,7 @@
       
 
       
-        <p>####什么是头部压缩？为什么要头部压缩？  </p>
-<hr>
+        <h4 id="什么是头部压缩？为什么要头部压缩？"><a href="#什么是头部压缩？为什么要头部压缩？" class="headerlink" title="什么是头部压缩？为什么要头部压缩？"></a>什么是头部压缩？为什么要头部压缩？</h4><hr>
 <p>http请求和响应都是由 状态行、请求/响应头部、消息主题 三部分组成的。<br>一般而言，消息主体都会经过gzip压缩，或者本身传输的就是压缩过后的二进制文件（如图片、音频等），但是状态行和头部多是没有经过任何压缩，而是直接以纯文本的方式进行传输的。</p>
 <p>　　而随着web功能越来越复杂，请求数量越来越多，随之而来的就是头部的流量越来越多，并且在建立初次链接之后的链接也要发送user-agent等信息，是在是一种浪费。 </p>
 <p>　　因此，http2提出了对请求和响应的头部进行压缩，即不再只是压缩主题部分，这种压缩方式就是HAPCK — 其设计简单而灵活。</p>
@@ -438,8 +437,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -471,7 +479,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -516,6 +524,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是头部压缩？为什么要头部压缩？"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x4EC0;&#x4E48;&#x662F;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;" class="headerlink" title="&#x4EC0;&#x4E48;&#x662F;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;"></a>&#x4EC0;&#x4E48;&#x662F;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5934;&#x90E8;&#x538B;&#x7F29;&#xFF1F;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

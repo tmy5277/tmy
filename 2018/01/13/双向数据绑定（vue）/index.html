@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="###几种实现双向绑定的做法   目前几种主流的mvc(vm)框架都实现了单向数据绑定，而双向数据绑定无非就是在单向绑定的基础上给可输入元素（input、textare等）添加了change(input)事件，来动态修改model和 view。   实现数据绑定的做法有大致如下几种： 发布者-订阅者模式（backbone.js） 脏值检查（angular.js）  数据劫持（vue.js）">
+<meta name="description" content="几种实现双向绑定的做法目前几种主流的mvc(vm)框架都实现了单向数据绑定，而双向数据绑定无非就是在单向绑定的基础上给可输入元素（input、textare等）添加了change(input)事件，来动态修改model和 view。   实现数据绑定的做法有大致如下几种： 发布者-订阅者模式（backbone.js） 脏值检查（angular.js）  数据劫持（vue.js）    发布者-订阅">
 <meta name="keywords" content="knowledge,vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="双向数据绑定-vue">
 <meta property="og:url" content="http://yoursite.com/2018/01/13/双向数据绑定（vue）/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="###几种实现双向绑定的做法   目前几种主流的mvc(vm)框架都实现了单向数据绑定，而双向数据绑定无非就是在单向绑定的基础上给可输入元素（input、textare等）添加了change(input)事件，来动态修改model和 view。   实现数据绑定的做法有大致如下几种： 发布者-订阅者模式（backbone.js） 脏值检查（angular.js）  数据劫持（vue.js）">
+<meta property="og:description" content="几种实现双向绑定的做法目前几种主流的mvc(vm)框架都实现了单向数据绑定，而双向数据绑定无非就是在单向绑定的基础上给可输入元素（input、textare等）添加了change(input)事件，来动态修改model和 view。   实现数据绑定的做法有大致如下几种： 发布者-订阅者模式（backbone.js） 脏值检查（angular.js）  数据劫持（vue.js）    发布者-订阅">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-13T05:39:54.977Z">
+<meta property="og:updated_time" content="2018-01-17T07:01:28.773Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="双向数据绑定-vue">
-<meta name="twitter:description" content="###几种实现双向绑定的做法   目前几种主流的mvc(vm)框架都实现了单向数据绑定，而双向数据绑定无非就是在单向绑定的基础上给可输入元素（input、textare等）添加了change(input)事件，来动态修改model和 view。   实现数据绑定的做法有大致如下几种： 发布者-订阅者模式（backbone.js） 脏值检查（angular.js）  数据劫持（vue.js）">
+<meta name="twitter:description" content="几种实现双向绑定的做法目前几种主流的mvc(vm)框架都实现了单向数据绑定，而双向数据绑定无非就是在单向绑定的基础上给可输入元素（input、textare等）添加了change(input)事件，来动态修改model和 view。   实现数据绑定的做法有大致如下几种： 发布者-订阅者模式（backbone.js） 脏值检查（angular.js）  数据劫持（vue.js）    发布者-订阅">
 
 
 
@@ -321,8 +321,7 @@
       
 
       
-        <p>###几种实现双向绑定的做法  </p>
-<p>目前几种主流的mvc(vm)框架都实现了单向数据绑定，而双向数据绑定无非就是在单向绑定的基础上给可输入元素（input、textare等）添加了change(input)事件，来动态修改model和 view。  </p>
+        <h3 id="几种实现双向绑定的做法"><a href="#几种实现双向绑定的做法" class="headerlink" title="几种实现双向绑定的做法"></a>几种实现双向绑定的做法</h3><p>目前几种主流的mvc(vm)框架都实现了单向数据绑定，而双向数据绑定无非就是在单向绑定的基础上给可输入元素（input、textare等）添加了change(input)事件，来动态修改model和 view。  </p>
 <p>实现数据绑定的做法有大致如下几种：</p>
 <p>发布者-订阅者模式（backbone.js）</p>
 <p>脏值检查（angular.js） </p>
@@ -333,8 +332,7 @@
 <p>脏值检查: angular.js 是通过脏值检测的方式比对数据是否有变更，来决定是否更新视图，最简单的方式就是通过 setInterval() 定时轮询检测数据变动，当然Google不会这么low，angular只有在指定的事件触发时进入脏值检测，大致如下：</p>
 <p>DOM事件，譬如用户输入文本，点击按钮等。( ng-click )<br>XHR响应事件 ( $http )<br>浏览器Location变更事件 ( $location )<br>Timer事件( $timeout , $interval )<br>执行 $digest() 或 $apply()<br>数据劫持: vue.js 则是采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。  </p>
 <hr>
-<p>###Vue双向数据绑定  </p>
-<p>已经了解到vue是通过数据劫持的方式来做数据绑定的，其中最核心的方法便是通过Object.defineProperty()来实现对属性的劫持，达到监听数据变动的目的，无疑这个方法是本文中最重要、最基础的内容之一，如果不熟悉defineProperty，<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener">这里</a>  </p>
+<h3 id="Vue双向数据绑定"><a href="#Vue双向数据绑定" class="headerlink" title="Vue双向数据绑定"></a>Vue双向数据绑定</h3><p>已经了解到vue是通过数据劫持的方式来做数据绑定的，其中最核心的方法便是通过Object.defineProperty()来实现对属性的劫持，达到监听数据变动的目的，无疑这个方法是本文中最重要、最基础的内容之一，如果不熟悉defineProperty，<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener">这里</a>  </p>
 <p>整理了一下，要实现mvvm的双向绑定，就必须要实现以下几点：  </p>
 <ol>
 <li>实现一个数据监听器Observer，能够对数据对象的所有属性进行监听，如有变动可拿到最新值并通知订阅者</li>
@@ -448,8 +446,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -481,7 +488,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -526,6 +533,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#几种实现双向绑定的做法"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x51E0;&#x79CD;&#x5B9E;&#x73B0;&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#x7684;&#x505A;&#x6CD5;" class="headerlink" title="&#x51E0;&#x79CD;&#x5B9E;&#x73B0;&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#x7684;&#x505A;&#x6CD5;"></a>&#x51E0;&#x79CD;&#x5B9E;&#x73B0;&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#x7684;&#x505A;&#x6CD5;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue双向数据绑定"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Vue&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A;" class="headerlink" title="Vue&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A;"></a>Vue&#x53CC;&#x5411;&#x6570;&#x636E;&#x7ED1;&#x5B9A;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
