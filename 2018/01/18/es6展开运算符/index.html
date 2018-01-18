@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="knowledge," />
+  <meta name="keywords" content="knowledge,javascript," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="随着HTML5的出现，web开发又有了两种选择：Web Storage和Web SQL Database. Web Storage有两种形式：LocalStorage（本地存储）和 sessionStorage（会话存储）。这两种方式都允许开发者使用js设置的键值对进行操作，在重新加载不同的页面的时候读出它们，这一点与cookie类似。1.与cookie不同的是：Web Storage数据完全存储">
-<meta name="keywords" content="knowledge">
+<meta name="description" content="转载自mjzhang(转载请说明此出处)。    JavaScript是ECMAScript的实现和扩展，ES6标准的制定也为JavaScript加入了许多新特性。   本文主要记录展开运算符。展开运算符（spread operator）允许一个表达式在某处展开。展开运算符在多个参数（用于函数调用）或多个元素（用于数组字面量）或者多个变量（用于解构赋值）的地方可以使用。 展开运算符不能用在对象当">
+<meta name="keywords" content="knowledge,javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cookie，session,sessionStorage 和 localStorage 的区别">
-<meta property="og:url" content="http://yoursite.com/2017/12/22/cookie，session,sessionStorage 和 localStorage/index.html">
+<meta property="og:title" content="es6展开运算符-转载">
+<meta property="og:url" content="http://yoursite.com/2018/01/18/es6展开运算符/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="随着HTML5的出现，web开发又有了两种选择：Web Storage和Web SQL Database. Web Storage有两种形式：LocalStorage（本地存储）和 sessionStorage（会话存储）。这两种方式都允许开发者使用js设置的键值对进行操作，在重新加载不同的页面的时候读出它们，这一点与cookie类似。1.与cookie不同的是：Web Storage数据完全存储">
+<meta property="og:description" content="转载自mjzhang(转载请说明此出处)。    JavaScript是ECMAScript的实现和扩展，ES6标准的制定也为JavaScript加入了许多新特性。   本文主要记录展开运算符。展开运算符（spread operator）允许一个表达式在某处展开。展开运算符在多个参数（用于函数调用）或多个元素（用于数组字面量）或者多个变量（用于解构赋值）的地方可以使用。 展开运算符不能用在对象当">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-22T09:48:47.218Z">
+<meta property="og:updated_time" content="2018-01-18T08:00:43.053Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cookie，session,sessionStorage 和 localStorage 的区别">
-<meta name="twitter:description" content="随着HTML5的出现，web开发又有了两种选择：Web Storage和Web SQL Database. Web Storage有两种形式：LocalStorage（本地存储）和 sessionStorage（会话存储）。这两种方式都允许开发者使用js设置的键值对进行操作，在重新加载不同的页面的时候读出它们，这一点与cookie类似。1.与cookie不同的是：Web Storage数据完全存储">
+<meta name="twitter:title" content="es6展开运算符-转载">
+<meta name="twitter:description" content="转载自mjzhang(转载请说明此出处)。    JavaScript是ECMAScript的实现和扩展，ES6标准的制定也为JavaScript加入了许多新特性。   本文主要记录展开运算符。展开运算符（spread operator）允许一个表达式在某处展开。展开运算符在多个参数（用于函数调用）或多个元素（用于数组字面量）或者多个变量（用于解构赋值）的地方可以使用。 展开运算符不能用在对象当">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/22/cookie，session,sessionStorage 和 localStorage/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/18/es6展开运算符/"/>
 
 
 
 
 
-  <title>cookie，session,sessionStorage 和 localStorage 的区别 | MY BLOG</title>
+  <title>es6展开运算符-转载 | MY BLOG</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/22/cookie，session,sessionStorage 和 localStorage/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/18/es6展开运算符/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tmy">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">cookie，session,sessionStorage 和 localStorage 的区别</h1>
+          <h1 class="post-title" itemprop="name headline">es6展开运算符-转载</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-22T17:47:57+08:00">
-                2017-12-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T15:19:36+08:00">
+                2018-01-18
               </time>
             
 
@@ -291,9 +291,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/22/cookie，session,sessionStorage 和 localStorage/#comments" itemprop="discussionUrl">
+                <a href="/2018/01/18/es6展开运算符/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/22/cookie，session,sessionStorage 和 localStorage/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/01/18/es6展开运算符/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -321,23 +321,41 @@
       
 
       
-        <p>随着HTML5的出现，web开发又有了两种选择：Web Storage和Web SQL Database.</p>
-<p>Web Storage有两种形式：<code>LocalStorage（本地存储）</code>和 <code>sessionStorage（会话存储）</code>。这两种方式都允许开发者使用js设置的键值对进行操作，在重新加载不同的页面的时候读出它们，这一点与cookie类似。<br>1.与cookie不同的是：Web Storage数据完全存储在客户端，不需要通过浏览器的请求将数据传给服务器，因此相比cookie来说能够存储更多的数据，大概5M左右。</p>
-<p>2.LocalStorage和sessionStorage功能上是一样的，但是存储持久时间不一样。</p>
-<pre><code>LocalStorage：浏览器关闭了数据仍然可以保存下来，并可用于所有同源（相同的域名、协议和端口）窗口（或标签页），
-
-sessionStorage：数据存储在窗口对象中，窗口关闭后对应的窗口对象消失，存储的数据也会丢失。
-</code></pre><p>注意：sessionStorage 都可以用localStorage 来代替，但需要记住的是，在窗口或者标签页关闭时，使用sessionStorage 存储的数据会丢失。</p>
-<p>3、使用 local storage和session storage主要通过在js中操作这两个对象来实现，分别为window.localStorage和window.sessionStorage. 这两个对象均是Storage类的两个实例，自然也具有Storage类的属性和方法。  </p>
-<p>4、cookie和本地存储（sessionStorage与localStorage）的区别：cookie可以通过HTTP协议传给服务端，本地存储不会。  </p>
-<p>5、cookie和session的区别：cookie数据存放在客户的浏览器上，session数据放在服务器上。session安全等级更高。</p>
-<hr>
-<p>Cookie的处理分为：</p>
-<ul>
-<li>服务器像客户端发送cookie</li>
-<li>浏览器将cookie保存</li>
-<li>之后每次http请求浏览器都会将cookie发送给服务器端</li>
-</ul>
+        <blockquote>
+<p><a href="http://mjzhang.cn/" target="_blank" rel="noopener">转载自mjzhang</a>(转载请说明此出处)。  </p>
+</blockquote>
+<p>JavaScript是ECMAScript的实现和扩展，ES6标准的制定也为JavaScript加入了许多新特性。  </p>
+<h3 id="本文主要记录展开运算符。"><a href="#本文主要记录展开运算符。" class="headerlink" title="本文主要记录展开运算符。"></a>本文主要记录展开运算符。</h3><p><strong>展开运算符（spread operator）</strong>允许一个表达式在某处展开。展开运算符在多个参数（用于函数调用）或多个元素（用于数组字面量）或者多个变量（用于解构赋值）的地方可以使用。</p>
+<p>展开运算符不能用在对象当中，因为目前展开运算符只能在可遍历对象（iterables）可用。<br><code>iterables</code>的实现是依靠<code>[Symbol.iterator]</code>函数，而目前只有<code>Array,Set,String</code>内置<code>[Symbol.iterator]</code>方法，而Object尚未内置该方法，因此无法使用展开运算符。不过ES7草案当中已经加入了对象展开运算符特性。</p>
+<h3 id="在函数调用中使用展开运算符"><a href="#在函数调用中使用展开运算符" class="headerlink" title="在函数调用中使用展开运算符"></a>在函数调用中使用展开运算符</h3><p>在以前我们会使用apply方法来将一个数组展开成多个参数：</p>
+<pre><code>function test(a, b, c) { }
+var args = [0, 1, 2];
+test.apply(null, args);
+</code></pre><p>如上，我们把args数组当作实参传递给了a,b,c，这边正是利用了<code>Function.prototype.apply</code>的特性。</p>
+<p>不过有了ES6，我们就可以更加简洁地来传递数组参数：</p>
+<pre><code>function test(a,b,c) { }
+var args = [0,1,2];
+test(...args);
+</code></pre><p>我们使用<strong>…展开运算符</strong>就可以把args直接传递给test()函数。</p>
+<h3 id="数组字面量中使用展开运算符"><a href="#数组字面量中使用展开运算符" class="headerlink" title="数组字面量中使用展开运算符"></a>数组字面量中使用展开运算符</h3><p>在ES6的世界中，我们可以直接加一个数组直接合并到另外一个数组当中：</p>
+<pre><code>var arr1=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;];
+var arr2=[...arr1,&apos;d&apos;,&apos;e&apos;]; //[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;e&apos;]
+</code></pre><p>展开运算符也可以用在push函数中，可以不用再用apply()函数来合并两个数组：</p>
+<pre><code>var arr1=[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;];
+var arr2=[&apos;d&apos;,&apos;e&apos;];
+arr1.push(...arr2); //[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;e&apos;]
+</code></pre><h3 id="用于解构赋值"><a href="#用于解构赋值" class="headerlink" title="用于解构赋值"></a>用于解构赋值</h3><p>解构赋值也是ES6中的一个特性，而这个展开运算符可以用于部分情景：</p>
+<pre><code>let [arg1,arg2,...arg3] = [1, 2, 3, 4];
+arg1 //1
+arg2 //2
+arg3 //[&apos;3&apos;,&apos;4&apos;]
+</code></pre><p>展开运算符在解构赋值中的作用跟之前的作用看上去是相反的，将多个数组项组合成了一个新数组。</p>
+<p>不过要注意，解构赋值中展开运算符只能用在最后：</p>
+<pre><code>let [arg1,...arg2,arg3] = [1, 2, 3, 4]; //报错
+</code></pre><h3 id="类数组对象变成数组"><a href="#类数组对象变成数组" class="headerlink" title="类数组对象变成数组"></a>类数组对象变成数组</h3><p>展开运算符可以将一个类数组对象变成一个真正的数组对象：</p>
+<pre><code>var list=document.getElementsByTagName(&apos;div&apos;);
+var arr=[..list];
+</code></pre><p>list是类数组对象，而我们通过使用展开运算符使之变成了数组。</p>
 
       
     </div>
@@ -357,6 +375,8 @@ sessionStorage：数据存储在窗口对象中，窗口关闭后对应的窗口
           
             <a href="/tags/knowledge/" rel="tag"># knowledge</a>
           
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
         </div>
       
 
@@ -368,8 +388,8 @@ sessionStorage：数据存储在窗口对象中，窗口关闭后对应的窗口
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/19/webpack-dev.server.js(附本地模拟API)/" rel="next" title="webpack-dev.server.js(附本地模拟API方法)">
-                <i class="fa fa-chevron-left"></i> webpack-dev.server.js(附本地模拟API方法)
+              <a href="/2018/01/17/ajax与jsonp的区别/" rel="next" title="ajax和jsonp的区别">
+                <i class="fa fa-chevron-left"></i> ajax和jsonp的区别
               </a>
             
           </div>
@@ -377,10 +397,6 @@ sessionStorage：数据存储在窗口对象中，窗口关闭后对应的窗口
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/22/axios基本用法/" rel="prev" title="axios基本用法">
-                axios基本用法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -442,8 +458,17 @@ sessionStorage：数据存储在窗口对象中，窗口关闭后对应的窗口
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -520,6 +545,22 @@ sessionStorage：数据存储在窗口对象中，窗口关闭后对应的窗口
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#本文主要记录展开运算符。"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x672C;&#x6587;&#x4E3B;&#x8981;&#x8BB0;&#x5F55;&#x5C55;&#x5F00;&#x8FD0;&#x7B97;&#x7B26;&#x3002;" class="headerlink" title="&#x672C;&#x6587;&#x4E3B;&#x8981;&#x8BB0;&#x5F55;&#x5C55;&#x5F00;&#x8FD0;&#x7B97;&#x7B26;&#x3002;"></a>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x8BB0;&#x5F55;&#x5C55;&#x5F00;&#x8FD0;&#x7B97;&#x7B26;&#x3002;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在函数调用中使用展开运算符"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x5728;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E2D;&#x4F7F;&#x7528;&#x5C55;&#x5F00;&#x8FD0;&#x7B97;&#x7B26;" class="headerlink" title="&#x5728;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E2D;&#x4F7F;&#x7528;&#x5C55;&#x5F00;&#x8FD0;&#x7B97;&#x7B26;"></a>&#x5728;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E2D;&#x4F7F;&#x7528;&#x5C55;&#x5F00;&#x8FD0;&#x7B97;&#x7B26;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组字面量中使用展开运算符"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x4E2D;&#x4F7F;&#x7528;&#x5C55;&#x5F00;&#x8FD0;&#x7B97;&#x7B26;" class="headerlink" title="&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x4E2D;&#x4F7F;&#x7528;&#x5C55;&#x5F00;&#x8FD0;&#x7B97;&#x7B26;"></a>&#x6570;&#x7EC4;&#x5B57;&#x9762;&#x91CF;&#x4E2D;&#x4F7F;&#x7528;&#x5C55;&#x5F00;&#x8FD0;&#x7B97;&#x7B26;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用于解构赋值"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x7528;&#x4E8E;&#x89E3;&#x6784;&#x8D4B;&#x503C;" class="headerlink" title="&#x7528;&#x4E8E;&#x89E3;&#x6784;&#x8D4B;&#x503C;"></a>&#x7528;&#x4E8E;&#x89E3;&#x6784;&#x8D4B;&#x503C;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类数组对象变成数组"><span class="nav-number">5.</span> <span class="nav-text"><a href="#&#x7C7B;&#x6570;&#x7EC4;&#x5BF9;&#x8C61;&#x53D8;&#x6210;&#x6570;&#x7EC4;" class="headerlink" title="&#x7C7B;&#x6570;&#x7EC4;&#x5BF9;&#x8C61;&#x53D8;&#x6210;&#x6570;&#x7EC4;"></a>&#x7C7B;&#x6570;&#x7EC4;&#x5BF9;&#x8C61;&#x53D8;&#x6210;&#x6570;&#x7EC4;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -690,9 +731,9 @@ sessionStorage：数据存储在窗口对象中，窗口关闭后对应的窗口
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/12/22/cookie，session,sessionStorage 和 localStorage/';
-          this.page.identifier = '2017/12/22/cookie，session,sessionStorage 和 localStorage/';
-          this.page.title = 'cookie，session,sessionStorage 和 localStorage 的区别';
+          this.page.url = 'http://yoursite.com/2018/01/18/es6展开运算符/';
+          this.page.identifier = '2018/01/18/es6展开运算符/';
+          this.page.title = 'es6展开运算符-转载';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://tmy.disqus.com/embed.js';
