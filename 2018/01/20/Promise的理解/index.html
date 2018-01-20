@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="essay," />
+  <meta name="keywords" content="knowledge,javascript," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="元旦，刷题，偷懒，吃鸡，找实习，确认自己的水平 …">
-<meta name="keywords" content="essay">
+<meta name="description" content="对Promise的理解Promise对象有三种状态：pending(未完成)、fulfilled(完成)、rejected(拒绝)有两种过度：pending -&amp;gt; fulfilled 或者是 pending -&amp;gt; rejected对象的状态一旦改变，就不能在变，而且对象的状态不会受到外界的影响如果状态变为fulfilled，则可以返回resolve函数，然后作为参数传递到then中的成">
+<meta name="keywords" content="knowledge,javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="新的一年">
-<meta property="og:url" content="http://yoursite.com/2017/12/31/新的一年/index.html">
+<meta property="og:title" content="Promise的理解">
+<meta property="og:url" content="http://yoursite.com/2018/01/20/Promise的理解/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="元旦，刷题，偷懒，吃鸡，找实习，确认自己的水平 …">
+<meta property="og:description" content="对Promise的理解Promise对象有三种状态：pending(未完成)、fulfilled(完成)、rejected(拒绝)有两种过度：pending -&amp;gt; fulfilled 或者是 pending -&amp;gt; rejected对象的状态一旦改变，就不能在变，而且对象的状态不会受到外界的影响如果状态变为fulfilled，则可以返回resolve函数，然后作为参数传递到then中的成">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-31T08:48:09.336Z">
+<meta property="og:updated_time" content="2018-01-20T11:35:15.576Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="新的一年">
-<meta name="twitter:description" content="元旦，刷题，偷懒，吃鸡，找实习，确认自己的水平 …">
+<meta name="twitter:title" content="Promise的理解">
+<meta name="twitter:description" content="对Promise的理解Promise对象有三种状态：pending(未完成)、fulfilled(完成)、rejected(拒绝)有两种过度：pending -&amp;gt; fulfilled 或者是 pending -&amp;gt; rejected对象的状态一旦改变，就不能在变，而且对象的状态不会受到外界的影响如果状态变为fulfilled，则可以返回resolve函数，然后作为参数传递到then中的成">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/31/新的一年/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/20/Promise的理解/"/>
 
 
 
 
 
-  <title>新的一年 | MY BLOG</title>
+  <title>Promise的理解 | MY BLOG</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/31/新的一年/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/Promise的理解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tmy">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">新的一年</h1>
+          <h1 class="post-title" itemprop="name headline">Promise的理解</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-31T16:45:03+08:00">
-                2017-12-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-20T19:33:36+08:00">
+                2018-01-20
               </time>
             
 
@@ -291,9 +291,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/31/新的一年/#comments" itemprop="discussionUrl">
+                <a href="/2018/01/20/Promise的理解/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/31/新的一年/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/01/20/Promise的理解/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -321,7 +321,48 @@
       
 
       
-        <p>元旦，刷题，偷懒，吃鸡，找实习，确认自己的水平 …</p>
+        <h2 id="对Promise的理解"><a href="#对Promise的理解" class="headerlink" title="对Promise的理解"></a>对Promise的理解</h2><h3 id="Promise对象"><a href="#Promise对象" class="headerlink" title="Promise对象"></a>Promise对象</h3><p>有三种状态：pending(未完成)、fulfilled(完成)、rejected(拒绝)<br>有两种过度：pending -&gt; fulfilled 或者是 pending -&gt; rejected<br>对象的状态一旦改变，就不能在变，而且对象的状态不会受到外界的影响<br>如果状态变为fulfilled，则可以返回resolve函数，然后作为参数传递到then中的成功处理函数中<br>如果状态变为rejected，则可以返回reject函数，然后作为参数传递到then中的拒绝处理函数中<br>在then方法中可以通过返回值，创建新的Promise对象之后将返回值传递到下一个then方法的成功或拒绝处理函数中<br>如果没有返回值，则默认为undefined  </p>
+<p>例子：  </p>
+<pre><code>Promise.reject(&apos;a error&apos;)
+    .then(res =&gt; console.log(res), err =&gt; console.log(err))
+    .then(res =&gt; console.log(res), err =&gt; console.log(err));
+    //&apos;a error&apos;,undefined
+</code></pre><h3 id="Promise-then"><a href="#Promise-then" class="headerlink" title="Promise.then()"></a>Promise.then()</h3><p>上面说的是Promise对象的成功与否所产生的变化，但如果then函数中出错了应该怎么捕获呢  </p>
+<blockquote>
+<p>promise.then(…).catch(…);  </p>
+</blockquote>
+<p>例子：</p>
+<pre><code>const fn = () =&gt; {
+    throw 2;
+}
+
+//promise.then(...).catch(...);有catch异常捕获
+Promise.resolve(1)         //{ [[PromiseStatus]]:&quot;resolved&quot;, [[PromiseValue]]:1 }
+    .then(v =&gt; {           //1
+        fn();              //抛异常了，then返回一个rejected的promise
+        return 3;          //后面不执行了
+    })                     //{ [[PromiseStatus]]:&quot;rejected&quot;, [[PromiseValue]]:2 }
+    .catch(v =&gt; {          //v是throw的值2
+        console.log(v);    //2
+        return 4;          //catch返回一个resolved且值为4的promise
+    });                
+    //{ [[PromiseStatus]]:&quot;resolved&quot;, [[PromiseValue]]:4 }
+    //程序最后正常结束
+
+//promise.then(..., ...);没有catch
+Promise.resolve(1)         //{ [[PromiseStatus]]:&quot;resolved&quot;, [[PromiseValue]]:1 }
+    .then(v =&gt; {         //1
+        fn();              //抛异常了，then返回一个rejected的promise
+        return 3;          //后面不执行了
+    },v =&gt; {             //这里是reject
+        console.log(v);        //不执行
+        return 4;              //不执行
+    }
+    });                     
+    //{ [[PromiseStatus]]:&quot;rejected&quot;, [[PromiseValue]]:2 }
+    //程序最后抛异常：Uncaught (in promise) 2
+</code></pre><hr>
+<p>参考1：<a href="https://www.zhihu.com/question/265448849" target="_blank" rel="noopener">https://www.zhihu.com/question/265448849</a><br>参考2：<a href="https://www.jianshu.com/p/c0e1cf2c7c43" target="_blank" rel="noopener">https://www.jianshu.com/p/c0e1cf2c7c43</a></p>
 
       
     </div>
@@ -339,7 +380,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/essay/" rel="tag"># essay</a>
+            <a href="/tags/knowledge/" rel="tag"># knowledge</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
           
         </div>
       
@@ -352,8 +395,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/31/原生js通用事件监听函数/" rel="next" title="原生js通用事件监听函数">
-                <i class="fa fa-chevron-left"></i> 原生js通用事件监听函数
+              <a href="/2018/01/19/Getters和Setters/" rel="next" title="Getters和Setters">
+                <i class="fa fa-chevron-left"></i> Getters和Setters
               </a>
             
           </div>
@@ -361,10 +404,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/08/js判断素数（质数）/" rel="prev" title="判断是否是素数">
-                判断是否是素数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -426,8 +465,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -504,6 +552,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对Promise的理解"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x5BF9;Promise&#x7684;&#x7406;&#x89E3;" class="headerlink" title="&#x5BF9;Promise&#x7684;&#x7406;&#x89E3;"></a>&#x5BF9;Promise&#x7684;&#x7406;&#x89E3;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise对象"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#Promise&#x5BF9;&#x8C61;" class="headerlink" title="Promise&#x5BF9;&#x8C61;"></a>Promise&#x5BF9;&#x8C61;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-then"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#Promise-then" class="headerlink" title="Promise.then()"></a>Promise.then()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -674,9 +738,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/12/31/新的一年/';
-          this.page.identifier = '2017/12/31/新的一年/';
-          this.page.title = '新的一年';
+          this.page.url = 'http://yoursite.com/2018/01/20/Promise的理解/';
+          this.page.identifier = '2018/01/20/Promise的理解/';
+          this.page.title = 'Promise的理解';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://tmy.disqus.com/embed.js';
