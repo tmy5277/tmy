@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="MY BLOG">
 <meta property="og:description" content="转载自mjzhang(转载请说明此出处)。    JavaScript是ECMAScript的实现和扩展，ES6标准的制定也为JavaScript加入了许多新特性。   本文主要记录展开运算符。展开运算符（spread operator）允许一个表达式在某处展开。展开运算符在多个参数（用于函数调用）或多个元素（用于数组字面量）或者多个变量（用于解构赋值）的地方可以使用。 展开运算符不能用在对象当">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-18T08:00:43.053Z">
+<meta property="og:updated_time" content="2018-01-22T07:15:07.862Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="es6展开运算符-转载">
 <meta name="twitter:description" content="转载自mjzhang(转载请说明此出处)。    JavaScript是ECMAScript的实现和扩展，ES6标准的制定也为JavaScript加入了许多新特性。   本文主要记录展开运算符。展开运算符（spread operator）允许一个表达式在某处展开。展开运算符在多个参数（用于函数调用）或多个元素（用于数组字面量）或者多个变量（用于解构赋值）的地方可以使用。 展开运算符不能用在对象当">
@@ -354,7 +354,7 @@ arg3 //[&apos;3&apos;,&apos;4&apos;]
 <pre><code>let [arg1,...arg2,arg3] = [1, 2, 3, 4]; //报错
 </code></pre><h3 id="类数组对象变成数组"><a href="#类数组对象变成数组" class="headerlink" title="类数组对象变成数组"></a>类数组对象变成数组</h3><p>展开运算符可以将一个类数组对象变成一个真正的数组对象：</p>
 <pre><code>var list=document.getElementsByTagName(&apos;div&apos;);
-var arr=[..list];
+var arr=[...list];
 </code></pre><p>list是类数组对象，而我们通过使用展开运算符使之变成了数组。</p>
 
       
@@ -388,8 +388,8 @@ var arr=[..list];
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/17/ajax与jsonp的区别/" rel="next" title="ajax和jsonp的区别">
-                <i class="fa fa-chevron-left"></i> ajax和jsonp的区别
+              <a href="/2018/01/17/ajax与jsonp的区别/" rel="next" title="ajax和jsonp的区别（更新axios与vue-resource）">
+                <i class="fa fa-chevron-left"></i> ajax和jsonp的区别（更新axios与vue-resource）
               </a>
             
           </div>
@@ -491,7 +491,7 @@ var arr=[..list];
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="ajax与jsonp本质上不是一个东西，ajax的核心是通过XMLHttpRequest对象来获取非本页的内容，而jsonp则是通过动态创建script标签来获取服务器端的js脚本。 ajax与jsonp的本质区别不在于是否跨域，ajax通过服务器端代理（浏览器请求同源服务器，再由后者请求外部服务）也一样可以实现跨域，jsonp本身也可以获取同源的数据。   JQuery可以使用getJSON方法">
+<meta name="description" content="ajax与jsonp本质上不是一个东西，ajax的核心是通过XMLHttpRequest对象来获取非本页的内容，而jsonp则是通过动态创建script标签来获取服务器端的js脚本。 ajax与jsonp的本质区别不在于是否跨域，ajax通过服务器端代理（浏览器请求同源服务器，再由后者请求外部服务）也一样可以实现跨域，jsonp本身也可以获取同源的数据。    一般来说跨域还是使用jsonp。值得">
 <meta name="keywords" content="knowledge,ajax&#x2F;axios,jsonp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ajax和jsonp的区别">
+<meta property="og:title" content="ajax和jsonp的区别（更新axios与vue-resource）">
 <meta property="og:url" content="http://yoursite.com/2018/01/17/ajax与jsonp的区别/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="ajax与jsonp本质上不是一个东西，ajax的核心是通过XMLHttpRequest对象来获取非本页的内容，而jsonp则是通过动态创建script标签来获取服务器端的js脚本。 ajax与jsonp的本质区别不在于是否跨域，ajax通过服务器端代理（浏览器请求同源服务器，再由后者请求外部服务）也一样可以实现跨域，jsonp本身也可以获取同源的数据。   JQuery可以使用getJSON方法">
+<meta property="og:description" content="ajax与jsonp本质上不是一个东西，ajax的核心是通过XMLHttpRequest对象来获取非本页的内容，而jsonp则是通过动态创建script标签来获取服务器端的js脚本。 ajax与jsonp的本质区别不在于是否跨域，ajax通过服务器端代理（浏览器请求同源服务器，再由后者请求外部服务）也一样可以实现跨域，jsonp本身也可以获取同源的数据。    一般来说跨域还是使用jsonp。值得">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-17T07:05:41.072Z">
+<meta property="og:updated_time" content="2018-01-22T04:03:24.260Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ajax和jsonp的区别">
-<meta name="twitter:description" content="ajax与jsonp本质上不是一个东西，ajax的核心是通过XMLHttpRequest对象来获取非本页的内容，而jsonp则是通过动态创建script标签来获取服务器端的js脚本。 ajax与jsonp的本质区别不在于是否跨域，ajax通过服务器端代理（浏览器请求同源服务器，再由后者请求外部服务）也一样可以实现跨域，jsonp本身也可以获取同源的数据。   JQuery可以使用getJSON方法">
+<meta name="twitter:title" content="ajax和jsonp的区别（更新axios与vue-resource）">
+<meta name="twitter:description" content="ajax与jsonp本质上不是一个东西，ajax的核心是通过XMLHttpRequest对象来获取非本页的内容，而jsonp则是通过动态创建script标签来获取服务器端的js脚本。 ajax与jsonp的本质区别不在于是否跨域，ajax通过服务器端代理（浏览器请求同源服务器，再由后者请求外部服务）也一样可以实现跨域，jsonp本身也可以获取同源的数据。    一般来说跨域还是使用jsonp。值得">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>ajax和jsonp的区别 | MY BLOG</title>
+  <title>ajax和jsonp的区别（更新axios与vue-resource） | MY BLOG</title>
   
 
 
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ajax和jsonp的区别</h1>
+          <h1 class="post-title" itemprop="name headline">ajax和jsonp的区别（更新axios与vue-resource）</h1>
         
 
         <div class="post-meta">
@@ -322,7 +322,8 @@
 
       
         <p>ajax与jsonp本质上不是一个东西，ajax的核心是通过XMLHttpRequest对象来获取非本页的内容，而jsonp则是通过动态创建script标签来获取服务器端的js脚本。</p>
-<p>ajax与jsonp的本质区别不在于是否跨域，ajax通过服务器端代理（<strong>浏览器请求同源服务器，再由后者请求外部服务</strong>）也一样可以实现跨域，jsonp本身也可以获取同源的数据。  </p>
+<p>ajax与jsonp的本质区别不在于是否跨域，ajax通过服务器端代理（<strong>浏览器请求同源服务器，再由后者请求外部服务</strong>）也一样可以实现跨域，jsonp本身也可以获取同源的数据。   </p>
+<p>一般来说跨域还是使用jsonp。值得注意的是<strong>axios不支持jsonp</strong>，但vue-resource支持jsonp  </p>
 <p>JQuery可以使用getJSON方法来实现jsonp，同时，在ajax()方法所需传入的对象参数中也可以设置jsonp字段来设置服务端用于接收callback调用的function名  </p>
 
       
@@ -452,7 +453,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -682,7 +683,7 @@
         var disqus_config = function () {
           this.page.url = 'http://yoursite.com/2018/01/17/ajax与jsonp的区别/';
           this.page.identifier = '2018/01/17/ajax与jsonp的区别/';
-          this.page.title = 'ajax和jsonp的区别';
+          this.page.title = 'ajax和jsonp的区别（更新axios与vue-resource）';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://tmy.disqus.com/embed.js';
