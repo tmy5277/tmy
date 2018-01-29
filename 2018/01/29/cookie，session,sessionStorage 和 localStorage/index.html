@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="knowledge," />
+  <meta name="keywords" content="knowledge,面试," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="随着HTML5的出现，web开发又有了两种选择：Web Storage和Web SQL Database. Web Storage有两种形式：LocalStorage（本地存储）和 sessionStorage（会话存储）。这两种方式都允许开发者使用js设置的键值对进行操作，在重新加载不同的页面的时候读出它们，这一点与cookie类似。1.与cookie不同的是：Web Storage数据完全存储">
-<meta name="keywords" content="knowledge">
+<meta name="description" content="随着HTML5的出现，web开发又有了两种选择：Web Storage和Web SQL Database Web Storage有两种形式：localStorage（本地存储）和 sessionStorage（会话存储）。这两种方式都允许开发者使用js设置的键值对进行操作，在重新加载不同的页面的时候读出它们，这一点与cookie类似。   1.与cookie不同的是：Web Storage数据完全">
+<meta name="keywords" content="knowledge,面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cookie，session,sessionStorage 和 localStorage 的区别">
-<meta property="og:url" content="http://yoursite.com/2017/12/22/cookie，session,sessionStorage 和 localStorage/index.html">
+<meta property="og:title" content="浅谈 cookie,http缓存,session,webStorage(sessionStorage和localStorage)">
+<meta property="og:url" content="http://yoursite.com/2018/01/29/cookie，session,sessionStorage 和 localStorage/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="随着HTML5的出现，web开发又有了两种选择：Web Storage和Web SQL Database. Web Storage有两种形式：LocalStorage（本地存储）和 sessionStorage（会话存储）。这两种方式都允许开发者使用js设置的键值对进行操作，在重新加载不同的页面的时候读出它们，这一点与cookie类似。1.与cookie不同的是：Web Storage数据完全存储">
+<meta property="og:description" content="随着HTML5的出现，web开发又有了两种选择：Web Storage和Web SQL Database Web Storage有两种形式：localStorage（本地存储）和 sessionStorage（会话存储）。这两种方式都允许开发者使用js设置的键值对进行操作，在重新加载不同的页面的时候读出它们，这一点与cookie类似。   1.与cookie不同的是：Web Storage数据完全">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-25T04:05:38.641Z">
+<meta property="og:updated_time" content="2018-01-29T08:38:21.867Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cookie，session,sessionStorage 和 localStorage 的区别">
-<meta name="twitter:description" content="随着HTML5的出现，web开发又有了两种选择：Web Storage和Web SQL Database. Web Storage有两种形式：LocalStorage（本地存储）和 sessionStorage（会话存储）。这两种方式都允许开发者使用js设置的键值对进行操作，在重新加载不同的页面的时候读出它们，这一点与cookie类似。1.与cookie不同的是：Web Storage数据完全存储">
+<meta name="twitter:title" content="浅谈 cookie,http缓存,session,webStorage(sessionStorage和localStorage)">
+<meta name="twitter:description" content="随着HTML5的出现，web开发又有了两种选择：Web Storage和Web SQL Database Web Storage有两种形式：localStorage（本地存储）和 sessionStorage（会话存储）。这两种方式都允许开发者使用js设置的键值对进行操作，在重新加载不同的页面的时候读出它们，这一点与cookie类似。   1.与cookie不同的是：Web Storage数据完全">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/22/cookie，session,sessionStorage 和 localStorage/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/29/cookie，session,sessionStorage 和 localStorage/"/>
 
 
 
 
 
-  <title>cookie，session,sessionStorage 和 localStorage 的区别 | MY BLOG</title>
+  <title>浅谈 cookie,http缓存,session,webStorage(sessionStorage和localStorage) | MY BLOG</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/22/cookie，session,sessionStorage 和 localStorage/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/29/cookie，session,sessionStorage 和 localStorage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tmy">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">cookie，session,sessionStorage 和 localStorage 的区别</h1>
+          <h1 class="post-title" itemprop="name headline">浅谈 cookie,http缓存,session,webStorage(sessionStorage和localStorage)</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-22T17:47:57+08:00">
-                2017-12-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-29T16:35:44+08:00">
+                2018-01-29
               </time>
             
 
@@ -291,9 +291,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/22/cookie，session,sessionStorage 和 localStorage/#comments" itemprop="discussionUrl">
+                <a href="/2018/01/29/cookie，session,sessionStorage 和 localStorage/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/22/cookie，session,sessionStorage 和 localStorage/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/01/29/cookie，session,sessionStorage 和 localStorage/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -321,24 +321,19 @@
       
 
       
-        <p>随着HTML5的出现，web开发又有了两种选择：Web Storage和Web SQL Database.</p>
-<p>Web Storage有两种形式：<code>LocalStorage（本地存储）</code>和 <code>sessionStorage（会话存储）</code>。这两种方式都允许开发者使用js设置的键值对进行操作，在重新加载不同的页面的时候读出它们，这一点与cookie类似。<br>1.与cookie不同的是：Web Storage数据完全存储在客户端，不需要通过浏览器的请求将数据传给服务器，因此相比cookie来说能够存储更多的数据，大概5M左右。</p>
-<p>2.LocalStorage和sessionStorage功能上是一样的，但是存储持久时间不一样。</p>
-<pre><code>LocalStorage：浏览器关闭了数据仍然可以保存下来，并可用于所有同源（相同的域名、协议和端口）窗口（或标签页），
+        <p>随着HTML5的出现，web开发又有了两种选择：Web Storage和Web SQL Database</p>
+<p>Web Storage有两种形式：<code>localStorage（本地存储）</code>和 <code>sessionStorage（会话存储）</code>。这两种方式都允许开发者使用js设置的键值对进行操作，在重新加载不同的页面的时候读出它们，这一点与cookie类似。  </p>
+<p>1.与cookie不同的是：Web Storage数据<strong>完全</strong>存储在客户端，不需要通过浏览器的请求将数据传给服务器，因此相比cookie来说能够存储更多的数据，大概5M左右。</p>
+<p>2.localStorage和sessionStorage功能上是一样的，但是存储持久时间不一样。</p>
+<pre><code>localStorage：浏览器关闭了数据仍然可以保存下来，并可用于所有同源（相同的域名、协议和端口）窗口（或标签页），
 
 sessionStorage：数据存储在窗口对象中，窗口关闭后对应的窗口对象消失，存储的数据也会丢失。
 </code></pre><p>注意：sessionStorage 都可以用localStorage 来代替，但需要记住的是，在窗口或者标签页关闭时，使用sessionStorage 存储的数据会丢失。</p>
-<p>3、使用 local storage和session storage主要通过在js中操作这两个对象来实现，分别为window.localStorage和window.sessionStorage. 这两个对象均是Storage类的两个实例，自然也具有Storage类的属性和方法。  </p>
-<p>4、cookie和本地存储（sessionStorage与localStorage）的区别：cookie可以通过HTTP协议传给服务端，本地存储不会。  </p>
-<p>5、cookie和session的区别：cookie数据存放在客户的浏览器上，session数据放在服务器上。session安全等级更高。</p>
+<p>3.使用 local storage和session storage主要通过在js中操作这两个对象来实现，分别为window.localStorage和window.sessionStorage. 这两个对象均是Storage类的两个实例，自然也具有Storage类的属性和方法。  </p>
+<p>4.cookie和本地存储（sessionStorage与localStorage）的区别：cookie可以通过HTTP协议在服务器与本地之间传输（服务器也可以设置cookie发送给浏览器保存），本地存储不会。  </p>
+<p>5.cookie和session的区别与联系：cookie数据存放在客户的浏览器上，session数据放在服务器上;<br>session安全等级更高，但多了会占用较多服务器性能;<br>而session一般配合sessionID实现用户跟踪，sessionID一般存于cookie，也可用其他方式实现  </p>
 <hr>
-<p>Cookie的处理分为：</p>
-<ul>
-<li>服务器像客户端发送cookie</li>
-<li>浏览器将cookie保存</li>
-<li>之后每次http请求浏览器都会将cookie发送给服务器端  </li>
-</ul>
-<p><strong>cookie不是缓存，cookies类似于通行证；但可以在大小限制之内可以一定程度上实现缓存的效果，但不推荐</strong></p>
+<p><strong>HTTP缓存</strong>：<br>服务器端的缓存，服务器发送缓存规则和内容给浏览器，浏览器保存<br>分为强制缓存与对比缓存；<br>前者如果有相应缓存就不请求服务器，后者无论缓存是否命中，都会向服务器发送缓存验证标识，来判断是否失效（存在）；<br>两者可同时存在，前者优先级高；<br>缓存的规则信息都在http header中；<br>用header中的<code>Cache-Control</code>控制缓存规则，字段<code>etag/if-none-match</code>或者<code>last-modified/if-modified-since</code>判断是否改变  </p>
 
       
     </div>
@@ -358,6 +353,8 @@ sessionStorage：数据存储在窗口对象中，窗口关闭后对应的窗口
           
             <a href="/tags/knowledge/" rel="tag"># knowledge</a>
           
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
         </div>
       
 
@@ -369,8 +366,8 @@ sessionStorage：数据存储在窗口对象中，窗口关闭后对应的窗口
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/19/webpack-dev.server.js(附本地模拟API)/" rel="next" title="webpack-dev.server.js(附本地模拟API方法)">
-                <i class="fa fa-chevron-left"></i> webpack-dev.server.js(附本地模拟API方法)
+              <a href="/2018/01/26/经典算法/" rel="next" title="经典算法(二分查找修复)">
+                <i class="fa fa-chevron-left"></i> 经典算法(二分查找修复)
               </a>
             
           </div>
@@ -378,10 +375,6 @@ sessionStorage：数据存储在窗口对象中，窗口关闭后对应的窗口
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/22/axios基本用法/" rel="prev" title="axios基本用法">
-                axios基本用法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -691,9 +684,9 @@ sessionStorage：数据存储在窗口对象中，窗口关闭后对应的窗口
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/12/22/cookie，session,sessionStorage 和 localStorage/';
-          this.page.identifier = '2017/12/22/cookie，session,sessionStorage 和 localStorage/';
-          this.page.title = 'cookie，session,sessionStorage 和 localStorage 的区别';
+          this.page.url = 'http://yoursite.com/2018/01/29/cookie，session,sessionStorage 和 localStorage/';
+          this.page.identifier = '2018/01/29/cookie，session,sessionStorage 和 localStorage/';
+          this.page.title = '浅谈 cookie,http缓存,session,webStorage(sessionStorage和localStorage)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://tmy.disqus.com/embed.js';
