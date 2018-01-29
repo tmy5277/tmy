@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="MY BLOG">
 <meta property="og:description" content="Getters和Setters可以快速获取或设置一个对象的数据。一般来说，一个对象拥有两个方法，分别用于获取和设置某个值，比如： {     getValue: function(){         return this._value;     },     setValue: function(val){         this._value = val;     } } 用这种方式写Ja">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-19T06:21:05.993Z">
+<meta property="og:updated_time" content="2018-01-27T07:44:26.729Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Getters和Setters">
 <meta name="twitter:description" content="Getters和Setters可以快速获取或设置一个对象的数据。一般来说，一个对象拥有两个方法，分别用于获取和设置某个值，比如： {     getValue: function(){         return this._value;     },     setValue: function(val){         this._value = val;     } } 用这种方式写Ja">
@@ -344,7 +344,7 @@
 <pre><code>var field = new Field(&quot;test&quot;);
 field.value
 // =&gt; undefined
-// 因为设置了getter，所以参数直接赋值无效
+// 因为设置了setter，所以参数直接赋值无效
 field.setValue(&quot;test2&quot;)
 field.getValue()
 // =&gt; &quot;test2&quot; 
@@ -358,7 +358,7 @@ field.getValue()
         value = val;
     });
 }
-</code></pre><p>但是呢，你不喜欢这样写，而倾向在对象的prototype中定义getters和setters（私有变量写在哪并不重要），我们可以用另一种语法。</p>
+</code></pre><p>但是呢，你不喜欢这样写，而倾向在对象的prototype中定义getters和setters（私有变量写在哪并不重要），我们可以用另一种语法。(这样的话，用field.value方法获得的值，将会是get value()方法的返回值，类似vue的计算属性)</p>
 <pre><code>function Field(val){
     this.value = val;
 }
