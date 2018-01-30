@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="// 创建一个Socket实例 var socket = new WebSocket(&amp;apos;ws://localhost:8080&amp;apos;);   // 打开Socket  socket.onopen = function(event) {     // 发送一个初始化消息 socket.send(&amp;apos;I am the client and I\&amp;apos;m listening">
+<meta name="description" content="利用节流函数，实现对用户连续的键盘输入的判断，目前是粗略版本，没有进行封装  可以用于 隐藏内容的入口判断（？）或者 页面彩蛋的判断 var arr=&amp;apos;&amp;apos;;  document.addEventListener(&amp;quot;keyup&amp;quot;, function(event){     var e = event || window.event || arguments.">
 <meta name="keywords" content="knowledge,javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WebSocket">
-<meta property="og:url" content="http://yoursite.com/2017/12/31/websocket/index.html">
+<meta property="og:title" content="函数节流-判断用户连续输入">
+<meta property="og:url" content="http://yoursite.com/2018/01/30/函数节流--用户连续输入判断/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="// 创建一个Socket实例 var socket = new WebSocket(&amp;apos;ws://localhost:8080&amp;apos;);   // 打开Socket  socket.onopen = function(event) {     // 发送一个初始化消息 socket.send(&amp;apos;I am the client and I\&amp;apos;m listening">
+<meta property="og:description" content="利用节流函数，实现对用户连续的键盘输入的判断，目前是粗略版本，没有进行封装  可以用于 隐藏内容的入口判断（？）或者 页面彩蛋的判断 var arr=&amp;apos;&amp;apos;;  document.addEventListener(&amp;quot;keyup&amp;quot;, function(event){     var e = event || window.event || arguments.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-31T08:38:44.829Z">
+<meta property="og:updated_time" content="2018-01-30T11:19:31.206Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WebSocket">
-<meta name="twitter:description" content="// 创建一个Socket实例 var socket = new WebSocket(&amp;apos;ws://localhost:8080&amp;apos;);   // 打开Socket  socket.onopen = function(event) {     // 发送一个初始化消息 socket.send(&amp;apos;I am the client and I\&amp;apos;m listening">
+<meta name="twitter:title" content="函数节流-判断用户连续输入">
+<meta name="twitter:description" content="利用节流函数，实现对用户连续的键盘输入的判断，目前是粗略版本，没有进行封装  可以用于 隐藏内容的入口判断（？）或者 页面彩蛋的判断 var arr=&amp;apos;&amp;apos;;  document.addEventListener(&amp;quot;keyup&amp;quot;, function(event){     var e = event || window.event || arguments.">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/31/websocket/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/30/函数节流--用户连续输入判断/"/>
 
 
 
 
 
-  <title>WebSocket | MY BLOG</title>
+  <title>函数节流-判断用户连续输入 | MY BLOG</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/31/websocket/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/30/函数节流--用户连续输入判断/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tmy">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">WebSocket</h1>
+          <h1 class="post-title" itemprop="name headline">函数节流-判断用户连续输入</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-31T16:34:24+08:00">
-                2017-12-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-30T19:08:30+08:00">
+                2018-01-30
               </time>
             
 
@@ -291,9 +291,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/12/31/websocket/#comments" itemprop="discussionUrl">
+                <a href="/2018/01/30/函数节流--用户连续输入判断/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/12/31/websocket/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/01/30/函数节流--用户连续输入判断/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -321,58 +321,34 @@
       
 
       
-        <pre><code>// 创建一个Socket实例
-var socket = new WebSocket(&apos;ws://localhost:8080&apos;); 
+        <blockquote>
+<p>利用节流函数，实现对用户连续的键盘输入的判断，目前是粗略版本，没有进行封装</p>
+</blockquote>
+<p>可以用于 隐藏内容的入口判断（？）或者 页面彩蛋的判断</p>
+<pre><code>var arr=&apos;&apos;;
 
-// 打开Socket 
-socket.onopen = function(event) { 
-
-  // 发送一个初始化消息
-socket.send(&apos;I am the client and I\&apos;m listening!&apos;); 
-
-  // 监听消息
-socket.onmessage = function(event) { 
-console.log(&apos;Client received a message&apos;,event); 
-  }; 
-
-  // 监听Socket的关闭
-socket.onclose = function(event) { 
-console.log(&apos;Client notified socket has closed&apos;,event); 
-  }; 
-
-  // 关闭Socket.... 
-  //socket.close() 
-};
-
-
-
-socket.io.js:
-&lt;script src=&quot;http://cdn.socket.io/stable/socket.io.js&quot;&gt;&lt;/script&gt;
-
-// 创建Socket.IO实例，建立连接
-var socket= new io.Socket(&apos;localhost&apos;,{ 
-  port: 8080 
-}); 
-socket.connect(); 
-
-// 添加一个连接监听器
-socket.on(&apos;connect&apos;,function() { 
-  console.log(&apos;Client has connected to the server!&apos;); 
+document.addEventListener(&quot;keyup&quot;, function(event){
+    var e = event || window.event || arguments.callee.caller.arguments[0];
+    //console.log(e.keyCode);
+    throttle(textFn, 1000, e.keyCode);
 });
 
-// 添加一个连接监听器
-socket.on(&apos;message&apos;,function(data) { 
-  console.log(&apos;Received a message from the server!&apos;,data); 
-});
+function textFn(){
+    //console.log(arr);
+    if (arr == &apos;656667&apos;) {
+        console.log(&apos;yep&apos;);
+    } else {
+        console.log(&apos;nop&apos;);
+    }
+    arr = &apos;&apos;;
+}
 
-// 添加一个关闭连接的监听器
-socket.on(&apos;disconnect&apos;,function() { 
-  console.log(&apos;The client has disconnected!&apos;); 
-}); 
-
-// 通过Socket发送一条消息到服务器
-function sendMessageToServer(message) { 
-  socket.send(message); 
+function throttle(fn,delay,text){
+    clearTimeout(fn.timeoutId);
+    arr += text;
+    fn.timeoutId = setTimeout(function(){
+        fn.call();
+    },delay);
 }
 </code></pre>
       
@@ -406,8 +382,8 @@ function sendMessageToServer(message) {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/31/webapp与原生APP的优缺点/" rel="next" title="webAPP与原生APP">
-                <i class="fa fa-chevron-left"></i> webAPP与原生APP
+              <a href="/2018/01/29/cookie，session,sessionStorage 和 localStorage/" rel="next" title="浅谈 cookie,http缓存,session,webStorage(sessionStorage和localStorage)">
+                <i class="fa fa-chevron-left"></i> 浅谈 cookie,http缓存,session,webStorage(sessionStorage和localStorage)
               </a>
             
           </div>
@@ -415,10 +391,6 @@ function sendMessageToServer(message) {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/31/原生js通用事件监听函数/" rel="prev" title="原生js通用事件监听函数">
-                原生js通用事件监听函数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -728,9 +700,9 @@ function sendMessageToServer(message) {
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/12/31/websocket/';
-          this.page.identifier = '2017/12/31/websocket/';
-          this.page.title = 'WebSocket';
+          this.page.url = 'http://yoursite.com/2018/01/30/函数节流--用户连续输入判断/';
+          this.page.identifier = '2018/01/30/函数节流--用户连续输入判断/';
+          this.page.title = '函数节流-判断用户连续输入';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://tmy.disqus.com/embed.js';
