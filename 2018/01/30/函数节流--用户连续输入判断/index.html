@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="利用节流函数，实现对用户连续的键盘输入的判断，目前是粗略版本，没有进行封装  可以用于 隐藏内容的入口判断（？）或者 页面彩蛋的判断 var arr=&amp;apos;&amp;apos;;  document.addEventListener(&amp;quot;keyup&amp;quot;, function(event){     var e = event || window.event || arguments.">
+<meta name="description" content="利用节流函数，实现对用户连续的键盘输入的判断，目前是粗略版本，没有进行封装  可以用于 隐藏内容的入口判断（？）或者 页面彩蛋的判断 12345678910111213141516171819202122232425var arr=&apos;&apos;;document.addEventListener(&quot;keyup&quot;, function(event)&amp;#123;	var e = event || window">
 <meta name="keywords" content="knowledge,javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数节流-判断用户连续输入">
 <meta property="og:url" content="http://yoursite.com/2018/01/30/函数节流--用户连续输入判断/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="利用节流函数，实现对用户连续的键盘输入的判断，目前是粗略版本，没有进行封装  可以用于 隐藏内容的入口判断（？）或者 页面彩蛋的判断 var arr=&amp;apos;&amp;apos;;  document.addEventListener(&amp;quot;keyup&amp;quot;, function(event){     var e = event || window.event || arguments.">
+<meta property="og:description" content="利用节流函数，实现对用户连续的键盘输入的判断，目前是粗略版本，没有进行封装  可以用于 隐藏内容的入口判断（？）或者 页面彩蛋的判断 12345678910111213141516171819202122232425var arr=&apos;&apos;;document.addEventListener(&quot;keyup&quot;, function(event)&amp;#123;	var e = event || window">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-30T11:19:31.206Z">
+<meta property="og:updated_time" content="2018-02-17T08:04:52.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数节流-判断用户连续输入">
-<meta name="twitter:description" content="利用节流函数，实现对用户连续的键盘输入的判断，目前是粗略版本，没有进行封装  可以用于 隐藏内容的入口判断（？）或者 页面彩蛋的判断 var arr=&amp;apos;&amp;apos;;  document.addEventListener(&amp;quot;keyup&amp;quot;, function(event){     var e = event || window.event || arguments.">
+<meta name="twitter:description" content="利用节流函数，实现对用户连续的键盘输入的判断，目前是粗略版本，没有进行封装  可以用于 隐藏内容的入口判断（？）或者 页面彩蛋的判断 12345678910111213141516171819202122232425var arr=&apos;&apos;;document.addEventListener(&quot;keyup&quot;, function(event)&amp;#123;	var e = event || window">
 
 
 
@@ -325,32 +325,7 @@
 <p>利用节流函数，实现对用户连续的键盘输入的判断，目前是粗略版本，没有进行封装</p>
 </blockquote>
 <p>可以用于 隐藏内容的入口判断（？）或者 页面彩蛋的判断</p>
-<pre><code>var arr=&apos;&apos;;
-
-document.addEventListener(&quot;keyup&quot;, function(event){
-    var e = event || window.event || arguments.callee.caller.arguments[0];
-    //console.log(e.keyCode);
-    throttle(textFn, 1000, e.keyCode);
-});
-
-function textFn(){
-    //console.log(arr);
-    if (arr == &apos;656667&apos;) {
-        console.log(&apos;yep&apos;);
-    } else {
-        console.log(&apos;nop&apos;);
-    }
-    arr = &apos;&apos;;
-}
-
-function throttle(fn,delay,text){
-    clearTimeout(fn.timeoutId);
-    arr += text;
-    fn.timeoutId = setTimeout(function(){
-        fn.call();
-    },delay);
-}
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=<span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"keyup"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> e = event || <span class="built_in">window</span>.event || <span class="built_in">arguments</span>.callee.caller.arguments[<span class="number">0</span>];</span><br><span class="line">	<span class="comment">//console.log(e.keyCode);</span></span><br><span class="line">	throttle(textFn, <span class="number">1000</span>, e.keyCode);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">textFn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//console.log(arr);</span></span><br><span class="line">	<span class="keyword">if</span> (arr == <span class="string">'656667'</span>) &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'yep'</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">'nop'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	arr = <span class="string">''</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn,delay,text</span>)</span>&#123;</span><br><span class="line">	clearTimeout(fn.timeoutId);</span><br><span class="line">	arr += text;</span><br><span class="line">	fn.timeoutId = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		fn.call();</span><br><span class="line">	&#125;,delay);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     

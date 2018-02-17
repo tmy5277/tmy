@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="毕业设计可能用的上。。  判断用input上传的视频的格式BTW  如果是test.zip.jpg这样格式的文件，用lastIndexOf(&amp;quot;.&amp;quot;)方法 function checkTv(){     var tv_id =document.getElementById(&amp;apos;movie_tv&amp;apos;).value;//根据id得到值     var index=">
+<meta name="description" content="毕业设计可能用的上。。  判断用input上传的视频的格式BTW  如果是test.zip.jpg这样格式的文件，用lastIndexOf(&amp;quot;.&amp;quot;)方法 123456789function checkTv()&amp;#123;	var tv_id =document.getElementById(&apos;movie_tv&apos;).value;//根据id得到值	var index= tv_i">
 <meta name="keywords" content="knowledge,javascript,面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="判断上传视频格式">
 <meta property="og:url" content="http://yoursite.com/2018/02/05/判断上传视频格式/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="毕业设计可能用的上。。  判断用input上传的视频的格式BTW  如果是test.zip.jpg这样格式的文件，用lastIndexOf(&amp;quot;.&amp;quot;)方法 function checkTv(){     var tv_id =document.getElementById(&amp;apos;movie_tv&amp;apos;).value;//根据id得到值     var index=">
+<meta property="og:description" content="毕业设计可能用的上。。  判断用input上传的视频的格式BTW  如果是test.zip.jpg这样格式的文件，用lastIndexOf(&amp;quot;.&amp;quot;)方法 123456789function checkTv()&amp;#123;	var tv_id =document.getElementById(&apos;movie_tv&apos;).value;//根据id得到值	var index= tv_i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-08T10:05:36.016Z">
+<meta property="og:updated_time" content="2018-02-17T08:01:14.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="判断上传视频格式">
-<meta name="twitter:description" content="毕业设计可能用的上。。  判断用input上传的视频的格式BTW  如果是test.zip.jpg这样格式的文件，用lastIndexOf(&amp;quot;.&amp;quot;)方法 function checkTv(){     var tv_id =document.getElementById(&amp;apos;movie_tv&amp;apos;).value;//根据id得到值     var index=">
+<meta name="twitter:description" content="毕业设计可能用的上。。  判断用input上传的视频的格式BTW  如果是test.zip.jpg这样格式的文件，用lastIndexOf(&amp;quot;.&amp;quot;)方法 123456789function checkTv()&amp;#123;	var tv_id =document.getElementById(&apos;movie_tv&apos;).value;//根据id得到值	var index= tv_i">
 
 
 
@@ -325,16 +325,7 @@
 <p>毕业设计可能用的上。。</p>
 </blockquote>
 <p>判断用input上传的视频的格式<br><strong>BTW</strong>  如果是<code>test.zip.jpg</code>这样格式的文件，用<code>lastIndexOf(&quot;.&quot;)</code>方法</p>
-<pre><code>function checkTv(){
-    var tv_id =document.getElementById(&apos;movie_tv&apos;).value;//根据id得到值
-    var index= tv_id.indexOf(&quot;.&quot;); //得到&quot;.&quot;在第几位
-    tv_id=tv_id.substring(index); //截断&quot;.&quot;之前的，得到后缀
-    if(tv_id!=&quot;.mp4&quot;&amp;&amp;tv_id!=&quot;.rmvb&quot;&amp;&amp;tv_id!=&quot;.avi&quot;&amp;&amp;tv_id!=&quot;.ts&quot;){ //根据后缀，判断是否符合视频格式
-        alert(&quot;不是指定视频格式,重新选择&quot;); 
-          document.getElementById(&apos;movie_tv&apos;).value=&quot;&quot;;   // 不符合，就清除，重新选择
-    }
-}
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkTv</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> tv_id =<span class="built_in">document</span>.getElementById(<span class="string">'movie_tv'</span>).value;<span class="comment">//根据id得到值</span></span><br><span class="line">	<span class="keyword">var</span> index= tv_id.indexOf(<span class="string">"."</span>); <span class="comment">//得到"."在第几位</span></span><br><span class="line">	tv_id=tv_id.substring(index); <span class="comment">//截断"."之前的，得到后缀</span></span><br><span class="line">	<span class="keyword">if</span>(tv_id!=<span class="string">".mp4"</span>&amp;&amp;tv_id!=<span class="string">".rmvb"</span>&amp;&amp;tv_id!=<span class="string">".avi"</span>&amp;&amp;tv_id!=<span class="string">".ts"</span>)&#123; <span class="comment">//根据后缀，判断是否符合视频格式</span></span><br><span class="line">		alert(<span class="string">"不是指定视频格式,重新选择"</span>); </span><br><span class="line">  		<span class="built_in">document</span>.getElementById(<span class="string">'movie_tv'</span>).value=<span class="string">""</span>;   <span class="comment">// 不符合，就清除，重新选择</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     

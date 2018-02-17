@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="knowledge,javascript,ajax/axios,vue," />
+  <meta name="keywords" content="knowledge,ajax/axios,javascript,vue," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="vue-axios-login  实现登陆拦截原理  1、前端路由控制实现登陆拦截为路由添加一个自定义字段 requireAuth表示该路由需要登录  path: &amp;apos;/repository&amp;apos;,     name: &amp;apos;repository&amp;apos;,     meta: {     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录">
-<meta name="keywords" content="knowledge,javascript,ajax&#x2F;axios,vue">
+<meta name="description" content="vue-axios-login  实现登陆拦截原理  1、前端路由控制实现登陆拦截为路由添加一个自定义字段 requireAuth表示该路由需要登录 12345678910111213141516171819202122232425     path: &apos;/repository&apos;,    	name: &apos;repository&apos;,    	meta: &amp;#123;    	requireAuth:">
+<meta name="keywords" content="knowledge,ajax&#x2F;axios,javascript,vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-router与axios实现登陆拦截">
 <meta property="og:url" content="http://yoursite.com/2018/02/13/vue-router与axios实现登陆拦截/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="vue-axios-login  实现登陆拦截原理  1、前端路由控制实现登陆拦截为路由添加一个自定义字段 requireAuth表示该路由需要登录  path: &amp;apos;/repository&amp;apos;,     name: &amp;apos;repository&amp;apos;,     meta: {     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录">
+<meta property="og:description" content="vue-axios-login  实现登陆拦截原理  1、前端路由控制实现登陆拦截为路由添加一个自定义字段 requireAuth表示该路由需要登录 12345678910111213141516171819202122232425     path: &apos;/repository&apos;,    	name: &apos;repository&apos;,    	meta: &amp;#123;    	requireAuth:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-13T10:13:49.118Z">
+<meta property="og:updated_time" content="2018-02-17T08:06:35.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-router与axios实现登陆拦截">
-<meta name="twitter:description" content="vue-axios-login  实现登陆拦截原理  1、前端路由控制实现登陆拦截为路由添加一个自定义字段 requireAuth表示该路由需要登录  path: &amp;apos;/repository&amp;apos;,     name: &amp;apos;repository&amp;apos;,     meta: {     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录">
+<meta name="twitter:description" content="vue-axios-login  实现登陆拦截原理  1、前端路由控制实现登陆拦截为路由添加一个自定义字段 requireAuth表示该路由需要登录 12345678910111213141516171819202122232425     path: &apos;/repository&apos;,    	name: &apos;repository&apos;,    	meta: &amp;#123;    	requireAuth:">
 
 
 
@@ -325,27 +325,8 @@
 <p><a href="https://github.com/tmy5277/vue_axios_login" target="_blank" rel="noopener">vue-axios-login</a>  实现登陆拦截原理</p>
 </blockquote>
 <h3 id="1、前端路由控制实现登陆拦截"><a href="#1、前端路由控制实现登陆拦截" class="headerlink" title="1、前端路由控制实现登陆拦截"></a>1、前端路由控制实现登陆拦截</h3><p>为路由添加一个自定义字段 requireAuth表示该路由需要登录</p>
-<pre><code> path: &apos;/repository&apos;,
-    name: &apos;repository&apos;,
-    meta: {
-    requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-},
-component: Repository
-</code></pre><p>在路由跳转前判断是否有登录字段</p>
-<pre><code>router.beforeEach((to, from, next) =&gt; {
-    if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
-        if (store.state.token) {  // 通过vuex state获取当前的token是否存在
-            next();
-        } else {
-            next({
-                path: &apos;/login&apos;,
-                query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
-            })
-        }
-    } else {
-        next();
-    }
-</code></pre><p>这种方式是对用户的访问进行前端路由控制，是一种本地的拦截手段，要配合接下来的axios拦截器对request header进行判断才能实现真正意义上的登陆拦截  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">     path: <span class="string">'/repository'</span>,</span><br><span class="line">    	name: <span class="string">'repository'</span>,</span><br><span class="line">    	meta: &#123;</span><br><span class="line">    	requireAuth: <span class="literal">true</span>,  <span class="comment">// 添加该字段，表示进入这个路由是需要登录的</span></span><br><span class="line">    &#125;,</span><br><span class="line">    component: Repository</span><br><span class="line"><span class="string">``</span><span class="string">`   </span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">在路由跳转前判断是否有登录字段</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript </span><br><span class="line">    router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">    	<span class="keyword">if</span> (to.meta.requireAuth) &#123;  <span class="comment">// 判断该路由是否需要登录权限</span></span><br><span class="line">    		<span class="keyword">if</span> (store.state.token) &#123;  <span class="comment">// 通过vuex state获取当前的token是否存在</span></span><br><span class="line">    			next();</span><br><span class="line">    		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    			next(&#123;</span><br><span class="line">    				path: <span class="string">'/login'</span>,</span><br><span class="line">    				query: &#123;<span class="attr">redirect</span>: to.fullPath&#125;  <span class="comment">// 将跳转的路由path作为参数，登录成功后跳转到该路由</span></span><br><span class="line">    			&#125;)</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    		next();</span><br><span class="line">    	&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方式是对用户的访问进行前端路由控制，是一种本地的拦截手段，要配合接下来的axios拦截器对request header进行判断才能实现真正意义上的登陆拦截  </p>
 <h3 id="2、axios-的拦截器"><a href="#2、axios-的拦截器" class="headerlink" title="2、axios 的拦截器"></a>2、axios 的拦截器</h3><p>每次跳页面, 都要获取新路由对应的html页面, 这时候可以用axios的http拦截</p>
 <p>每次路由跳转, 都先让后台验证一下token是否有效, 在http头添加token, </p>
 <p>当后端接口返回 <code>401 Unauthorized</code>（未授权） ，让用户重新登录。</p>
@@ -353,36 +334,8 @@ component: Repository
 <p>关于Autorization使用之后会忽略cookie的token,  削弱了安全性, 可以配合https</p>
 </blockquote>
 <p>http request 拦截器↓  </p>
-<pre><code>axios.interceptors.request.use(
-    config =&gt; {
-        if (store.state.token) {  // 判断是否存在token，如果存在的话，则每个http header都加上token
-            config.headers.Authorization = `token ${store.state.token}`;
-        }
-        return config;
-    },
-    err =&gt; {
-        return Promise.reject(err);
-});
-</code></pre><p>http response 拦截器↓  </p>
-<pre><code>axios.interceptors.response.use(
-    response =&gt; {
-        return response;
-    },
-    error =&gt; {
-        if (error.response) {
-            switch (error.response.status) {
-                case 401:  
-                // 返回 401 的话清除token信息并跳转到登录页面
-                    store.commit(types.LOGOUT);
-                    router.replace({
-                        path: &apos;login&apos;,
-                        query: {redirect: router.currentRoute.fullPath}
-                    })
-            }
-        }
-        return Promise.reject(error.response.data)   // 返回接口返回的错误信息
-});
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">    axios.interceptors.request.use(</span><br><span class="line">    	config =&gt; &#123;</span><br><span class="line">    		<span class="keyword">if</span> (store.state.token) &#123;  <span class="comment">// 判断是否存在token，如果存在的话，则每个http header都加上token</span></span><br><span class="line">    			config.headers.Authorization = <span class="string">`token <span class="subst">$&#123;store.state.token&#125;</span>`</span>;</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="keyword">return</span> config;</span><br><span class="line">    	&#125;,</span><br><span class="line">    	err =&gt; &#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="built_in">Promise</span>.reject(err);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http response 拦截器↓  </span><br><span class="line"></span><br><span class="line">    axios.interceptors.response.use(</span><br><span class="line">    	response =&gt; &#123;</span><br><span class="line">    		<span class="keyword">return</span> response;</span><br><span class="line">    	&#125;,</span><br><span class="line">    	error =&gt; &#123;</span><br><span class="line">    		<span class="keyword">if</span> (error.response) &#123;</span><br><span class="line">    			<span class="keyword">switch</span> (error.response.status) &#123;</span><br><span class="line">    				<span class="keyword">case</span> <span class="number">401</span>:  </span><br><span class="line">    				<span class="comment">// 返回 401 的话清除token信息并跳转到登录页面</span></span><br><span class="line">    					store.commit(types.LOGOUT);</span><br><span class="line">    					router.replace(&#123;</span><br><span class="line">    						path: <span class="string">'login'</span>,</span><br><span class="line">    						query: &#123;<span class="attr">redirect</span>: router.currentRoute.fullPath&#125;</span><br><span class="line">    					&#125;)</span><br><span class="line">    			&#125;</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error.response.data)   <span class="comment">// 返回接口返回的错误信息</span></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -401,9 +354,9 @@ component: Repository
           
             <a href="/tags/knowledge/" rel="tag"># knowledge</a>
           
-            <a href="/tags/javascript/" rel="tag"># javascript</a>
-          
             <a href="/tags/ajax-axios/" rel="tag"># ajax/axios</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
           
             <a href="/tags/vue/" rel="tag"># vue</a>
           
