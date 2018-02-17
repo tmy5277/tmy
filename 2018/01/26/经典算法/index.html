@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="冒泡排序 1.比较相邻的两个元素，如果前一个比后一个大，则交换位置。 2.第一轮的时候最后一个元素应该是最大的一个。 3.按照步骤一的方法进行相邻两个元素的比较，这个时候由于最后一个元素已经是最大的了，所以最后一个元素不用比较。   function sort(arr) {     for(var i = 0;i&amp;lt;arr.length-1;i++) {         for(var j =">
+<meta name="description" content="追加插入排序（掌握了就加进来。。） 冒泡排序 1.比较相邻的两个元素，如果前一个比后一个大，则交换位置。 2.第一轮的时候最后一个元素应该是最大的一个。 3.按照步骤一的方法进行相邻两个元素的比较，这个时候由于最后一个元素已经是最大的了，所以最后一个元素不用比较。   123456789101112function sort(arr) &amp;#123;	for(var i = 0;i&amp;lt;arr.l">
 <meta name="keywords" content="knowledge,javascript,面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="经典算法(二分查找修复)">
+<meta property="og:title" content="经典算法(冒泡、快速、二分查找、插入)">
 <meta property="og:url" content="http://yoursite.com/2018/01/26/经典算法/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="冒泡排序 1.比较相邻的两个元素，如果前一个比后一个大，则交换位置。 2.第一轮的时候最后一个元素应该是最大的一个。 3.按照步骤一的方法进行相邻两个元素的比较，这个时候由于最后一个元素已经是最大的了，所以最后一个元素不用比较。   function sort(arr) {     for(var i = 0;i&amp;lt;arr.length-1;i++) {         for(var j =">
+<meta property="og:description" content="追加插入排序（掌握了就加进来。。） 冒泡排序 1.比较相邻的两个元素，如果前一个比后一个大，则交换位置。 2.第一轮的时候最后一个元素应该是最大的一个。 3.按照步骤一的方法进行相邻两个元素的比较，这个时候由于最后一个元素已经是最大的了，所以最后一个元素不用比较。   123456789101112function sort(arr) &amp;#123;	for(var i = 0;i&amp;lt;arr.l">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-26T08:03:40.495Z">
+<meta property="og:updated_time" content="2018-02-17T07:47:17.507Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="经典算法(二分查找修复)">
-<meta name="twitter:description" content="冒泡排序 1.比较相邻的两个元素，如果前一个比后一个大，则交换位置。 2.第一轮的时候最后一个元素应该是最大的一个。 3.按照步骤一的方法进行相邻两个元素的比较，这个时候由于最后一个元素已经是最大的了，所以最后一个元素不用比较。   function sort(arr) {     for(var i = 0;i&amp;lt;arr.length-1;i++) {         for(var j =">
+<meta name="twitter:title" content="经典算法(冒泡、快速、二分查找、插入)">
+<meta name="twitter:description" content="追加插入排序（掌握了就加进来。。） 冒泡排序 1.比较相邻的两个元素，如果前一个比后一个大，则交换位置。 2.第一轮的时候最后一个元素应该是最大的一个。 3.按照步骤一的方法进行相邻两个元素的比较，这个时候由于最后一个元素已经是最大的了，所以最后一个元素不用比较。   123456789101112function sort(arr) &amp;#123;	for(var i = 0;i&amp;lt;arr.l">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>经典算法(二分查找修复) | MY BLOG</title>
+  <title>经典算法(冒泡、快速、二分查找、插入) | MY BLOG</title>
   
 
 
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">经典算法(二分查找修复)</h1>
+          <h1 class="post-title" itemprop="name headline">经典算法(冒泡、快速、二分查找、插入)</h1>
         
 
         <div class="post-meta">
@@ -321,66 +321,27 @@
       
 
       
-        <h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><blockquote>
+        <pre><code>追加插入排序（掌握了就加进来。。）
+</code></pre><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><blockquote>
 <p>1.比较相邻的两个元素，如果前一个比后一个大，则交换位置。</p>
 <p>2.第一轮的时候最后一个元素应该是最大的一个。</p>
 <p>3.按照步骤一的方法进行相邻两个元素的比较，这个时候由于最后一个元素已经是最大的了，所以最后一个元素不用比较。 </p>
 </blockquote>
-<pre><code>function sort(arr) {
-    for(var i = 0;i&lt;arr.length-1;i++) {
-        for(var j = 0;j&lt;arr.length-1-i;j++) {
-            if (arr[j]&gt;arr[j+1]) {
-                var swap = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = swap;
-            }
-        }
-    }
-return arr;
-}
-</code></pre><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.length<span class="number">-1</span>;i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>;j&lt;arr.length<span class="number">-1</span>-i;j++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (arr[j]&gt;arr[j+<span class="number">1</span>]) &#123;</span><br><span class="line">				<span class="keyword">var</span> swap = arr[j];</span><br><span class="line">				arr[j] = arr[j+<span class="number">1</span>];</span><br><span class="line">				arr[j+<span class="number">1</span>] = swap;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><blockquote>
 <p>1.快速排序是对冒泡排序的一种改进，第一趟排序时将数据分成两部分，一部分比另一部分的所有数据都要小。</p>
 <p>2.递归调用，在两边都实行快速排序。 </p>
 </blockquote>
-<pre><code>function quickSort(arr) {
-    if (arr.length&lt;=1) {
-        return arr;
-    }
-    var index = Math.floor(arr.length/2);
-    var indexArr = arr.splice(index,1)[0];
-    var left = [];
-    var right = [];
-    for(var i = 0;i&lt;arr.length;i++) {
-        if (arr[i]&lt;=indexArr) {
-            left.push(arr[i]);
-        }else {
-            right.push(arr[i]);
-        }
-    }
-    return quickSort(left).concat([indexArr],quickSort(right));
-}
-</code></pre><h3 id="二分查找（折半查找）"><a href="#二分查找（折半查找）" class="headerlink" title="二分查找（折半查找）"></a>二分查找（折半查找）</h3><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (arr.length&lt;=<span class="number">1</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> arr;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">var</span> index = <span class="built_in">Math</span>.floor(arr.length/<span class="number">2</span>);</span><br><span class="line">	<span class="keyword">var</span> indexArr = arr.splice(index,<span class="number">1</span>)[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">var</span> left = [];</span><br><span class="line">	<span class="keyword">var</span> right = [];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i&lt;arr.length;i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (arr[i]&lt;=indexArr) &#123;</span><br><span class="line">			left.push(arr[i]);</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			right.push(arr[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> quickSort(left).concat([indexArr],quickSort(right));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二分查找（折半查找）"><a href="#二分查找（折半查找）" class="headerlink" title="二分查找（折半查找）"></a>二分查找（折半查找）</h3><blockquote>
 <p>1.找到一个中间值，通过与中间值比较，大的放右，小的放在左边。</p>
 <p>2.在两边中寻找中间值，持续以上操作，直到找到所在位置为止。 </p>
 </blockquote>
-<pre><code>function bSearch(arr, item, start=0, end=arr.length-1){       
-    var m = Math.floor((start + end) / 2);  
-
-    if(arr[m] == item){
-        return m;
-    }
-    if(start &gt; end){  
-        return false;  
-    }   
-    if(item &lt; arr[m]){
-        return bSearch(arr, item, start, m-1);
-    }else{
-        return bSearch(arr, item, m+1, end);
-    }
-
-    return false;  
-}  
-</code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bSearch</span>(<span class="params">arr, item, start=<span class="number">0</span>, end=arr.length<span class="number">-1</span></span>)</span>&#123;       </span><br><span class="line">  	<span class="keyword">var</span> m = <span class="built_in">Math</span>.floor((start + end) / <span class="number">2</span>);  </span><br><span class="line">    </span><br><span class="line">  	<span class="keyword">if</span>(arr[m] == item)&#123;</span><br><span class="line">  		<span class="keyword">return</span> m;</span><br><span class="line">  	&#125;</span><br><span class="line">  	<span class="keyword">if</span>(start &gt; end)&#123;  </span><br><span class="line">  		<span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">  	&#125;   </span><br><span class="line">  	<span class="keyword">if</span>(item &lt; arr[m])&#123;</span><br><span class="line">  		<span class="keyword">return</span> bSearch(arr, item, start, m<span class="number">-1</span>);</span><br><span class="line">  	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  		<span class="keyword">return</span> bSearch(arr, item, m+<span class="number">1</span>, end);</span><br><span class="line">  	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><blockquote>
+<p>从第一个元素开始，该元素可以认为已经被排序；<br>取出下一个元素，在已经排序的元素序列中从后向前扫描；<br>如果该元素（已排序）大于新元素，将该元素移到下一位置；<br>重复步骤3，直到找到已排序的元素小于或者等于新元素的位置；<br>将新元素插入到该位置后；<br>重复步骤2~5。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertSort</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> len = arr.length;</span><br><span class="line"> 	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">  		<span class="keyword">var</span> key = arr[i];</span><br><span class="line"> 		<span class="keyword">var</span> j = i - <span class="number">1</span>;</span><br><span class="line">  		<span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; arr[j] &gt; key) &#123;</span><br><span class="line">  			arr[j + <span class="number">1</span>] = arr[j];</span><br><span class="line">  			j--;</span><br><span class="line">  		&#125;</span><br><span class="line"> 		arr[j + <span class="number">1</span>] = key;</span><br><span class="line"> 	&#125;</span><br><span class="line">	<span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -585,7 +546,7 @@ return arr;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x5192;&#x6CE1;&#x6392;&#x5E8F;" class="headerlink" title="&#x5192;&#x6CE1;&#x6392;&#x5E8F;"></a>&#x5192;&#x6CE1;&#x6392;&#x5E8F;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x5FEB;&#x901F;&#x6392;&#x5E8F;" class="headerlink" title="&#x5FEB;&#x901F;&#x6392;&#x5E8F;"></a>&#x5FEB;&#x901F;&#x6392;&#x5E8F;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分查找（折半查找）"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x4E8C;&#x5206;&#x67E5;&#x627E;&#xFF08;&#x6298;&#x534A;&#x67E5;&#x627E;&#xFF09;" class="headerlink" title="&#x4E8C;&#x5206;&#x67E5;&#x627E;&#xFF08;&#x6298;&#x534A;&#x67E5;&#x627E;&#xFF09;"></a>&#x4E8C;&#x5206;&#x67E5;&#x627E;&#xFF08;&#x6298;&#x534A;&#x67E5;&#x627E;&#xFF09;</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x5192;&#x6CE1;&#x6392;&#x5E8F;" class="headerlink" title="&#x5192;&#x6CE1;&#x6392;&#x5E8F;"></a>&#x5192;&#x6CE1;&#x6392;&#x5E8F;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序"><span class="nav-number">2.</span> <span class="nav-text"><a href="#&#x5FEB;&#x901F;&#x6392;&#x5E8F;" class="headerlink" title="&#x5FEB;&#x901F;&#x6392;&#x5E8F;"></a>&#x5FEB;&#x901F;&#x6392;&#x5E8F;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分查找（折半查找）"><span class="nav-number">3.</span> <span class="nav-text"><a href="#&#x4E8C;&#x5206;&#x67E5;&#x627E;&#xFF08;&#x6298;&#x534A;&#x67E5;&#x627E;&#xFF09;" class="headerlink" title="&#x4E8C;&#x5206;&#x67E5;&#x627E;&#xFF08;&#x6298;&#x534A;&#x67E5;&#x627E;&#xFF09;"></a>&#x4E8C;&#x5206;&#x67E5;&#x627E;&#xFF08;&#x6298;&#x534A;&#x67E5;&#x627E;&#xFF09;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入排序"><span class="nav-number">4.</span> <span class="nav-text"><a href="#&#x63D2;&#x5165;&#x6392;&#x5E8F;" class="headerlink" title="&#x63D2;&#x5165;&#x6392;&#x5E8F;"></a>&#x63D2;&#x5165;&#x6392;&#x5E8F;</span></a></li></ol></div>
             
 
           </div>
@@ -763,7 +724,7 @@ return arr;
         var disqus_config = function () {
           this.page.url = 'http://yoursite.com/2018/01/26/经典算法/';
           this.page.identifier = '2018/01/26/经典算法/';
-          this.page.title = '经典算法(二分查找修复)';
+          this.page.title = '经典算法(冒泡、快速、二分查找、插入)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://tmy.disqus.com/embed.js';
