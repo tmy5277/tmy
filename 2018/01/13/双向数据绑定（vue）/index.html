@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="MY BLOG">
 <meta property="og:description" content="几种实现双向绑定的做法目前几种主流的mvc(vm)框架都实现了单向数据绑定，而双向数据绑定无非就是在单向绑定的基础上给可输入元素（input、textare等）添加了change(input)事件，来动态修改model和 view。   实现数据绑定的做法有大致如下几种： 发布者-订阅者模式（backbone.js） 脏值检查（angular.js）  数据劫持（vue.js）    发布者-订阅">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-17T07:01:28.773Z">
+<meta property="og:updated_time" content="2018-02-21T03:11:46.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="双向数据绑定-vue">
 <meta name="twitter:description" content="几种实现双向绑定的做法目前几种主流的mvc(vm)框架都实现了单向数据绑定，而双向数据绑定无非就是在单向绑定的基础上给可输入元素（input、textare等）添加了change(input)事件，来动态修改model和 view。   实现数据绑定的做法有大致如下几种： 发布者-订阅者模式（backbone.js） 脏值检查（angular.js）  数据劫持（vue.js）    发布者-订阅">
@@ -327,10 +327,11 @@
 <p>脏值检查（angular.js） </p>
 <p>数据劫持（vue.js）  </p>
 <hr>
-<p>发布者-订阅者模式: 一般通过sub, pub的方式实现数据和视图的绑定监听，更新数据方式通常做法是 vm.set(‘property’, value)，这里有篇文章讲的比较详细，有兴趣可点这里</p>
+<p><strong>发布者-订阅者模式</strong>: 一般通过sub, pub的方式实现数据和视图的绑定监听，更新数据方式通常做法是 vm.set(‘property’, value)</p>
 <p>这种方式现在毕竟太low了，我们更希望通过 vm.property = value 这种方式更新数据，同时自动更新视图，于是有了下面两种方式</p>
-<p>脏值检查: angular.js 是通过脏值检测的方式比对数据是否有变更，来决定是否更新视图，最简单的方式就是通过 setInterval() 定时轮询检测数据变动，当然Google不会这么low，angular只有在指定的事件触发时进入脏值检测，大致如下：</p>
-<p>DOM事件，譬如用户输入文本，点击按钮等。( ng-click )<br>XHR响应事件 ( $http )<br>浏览器Location变更事件 ( $location )<br>Timer事件( $timeout , $interval )<br>执行 $digest() 或 $apply()<br>数据劫持: vue.js 则是采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。  </p>
+<p><strong>脏值检查</strong>: angular.js 是通过脏值检测的方式比对数据是否有变更，来决定是否更新视图，最简单的方式就是通过 setInterval() 定时轮询检测数据变动，当然Google不会这么low，angular只有在指定的事件触发时进入脏值检测，大致如下：</p>
+<p>DOM事件，譬如用户输入文本，点击按钮等。( ng-click )<br>XHR响应事件 ( $http )<br>浏览器Location变更事件 ( $location )<br>Timer事件( $timeout , $interval )<br>执行 $digest() 或 $apply()  </p>
+<p><strong>数据劫持</strong>: vue.js 则是采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。  </p>
 <hr>
 <h3 id="Vue双向数据绑定"><a href="#Vue双向数据绑定" class="headerlink" title="Vue双向数据绑定"></a>Vue双向数据绑定</h3><p>已经了解到vue是通过数据劫持的方式来做数据绑定的，其中最核心的方法便是通过Object.defineProperty()来实现对属性的劫持，达到监听数据变动的目的，无疑这个方法是本文中最重要、最基础的内容之一，如果不熟悉defineProperty，<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="noopener">这里</a>  </p>
 <p>整理了一下，要实现mvvm的双向绑定，就必须要实现以下几点：  </p>
