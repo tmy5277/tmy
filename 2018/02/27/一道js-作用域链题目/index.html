@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="发现一道考察对js作用域链理解的题目，记录一下 分析：普通函数调用的话，this一般是指向调用函数的对象的，但是js在一开始时就设计了匿名函数的this是指向全局对象，也就是window的 123456789101112131415var x=5, o=&amp;#123;x:10,show:function(x)&amp;#123; //这里也是匿名函数，所以最后一个log也是指向的window.xvar x=">
+<meta name="description" content="发现一道考察对js作用域链理解的题目，记录一下 分析：普通函数调用的话，this一般是指向调用函数的对象的，但是js在一开始时就设计了匿名函数的this是指向全局对象，也就是window的 123456789101112131415var x=5, o=&amp;#123;x:10,show:function(x)&amp;#123; //这里也是匿名函数，所以最后一个log也是输出的window.xvar x=">
 <meta name="keywords" content="knowledge,javascript,面试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一道 js-作用域链 题目">
+<meta property="og:title" content="一道 this指向 题目">
 <meta property="og:url" content="http://yoursite.com/2018/02/27/一道js-作用域链题目/index.html">
 <meta property="og:site_name" content="MY BLOG">
-<meta property="og:description" content="发现一道考察对js作用域链理解的题目，记录一下 分析：普通函数调用的话，this一般是指向调用函数的对象的，但是js在一开始时就设计了匿名函数的this是指向全局对象，也就是window的 123456789101112131415var x=5, o=&amp;#123;x:10,show:function(x)&amp;#123; //这里也是匿名函数，所以最后一个log也是指向的window.xvar x=">
+<meta property="og:description" content="发现一道考察对js作用域链理解的题目，记录一下 分析：普通函数调用的话，this一般是指向调用函数的对象的，但是js在一开始时就设计了匿名函数的this是指向全局对象，也就是window的 123456789101112131415var x=5, o=&amp;#123;x:10,show:function(x)&amp;#123; //这里也是匿名函数，所以最后一个log也是输出的window.xvar x=">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-27T11:55:54.573Z">
+<meta property="og:updated_time" content="2018-02-28T03:28:01.060Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一道 js-作用域链 题目">
-<meta name="twitter:description" content="发现一道考察对js作用域链理解的题目，记录一下 分析：普通函数调用的话，this一般是指向调用函数的对象的，但是js在一开始时就设计了匿名函数的this是指向全局对象，也就是window的 123456789101112131415var x=5, o=&amp;#123;x:10,show:function(x)&amp;#123; //这里也是匿名函数，所以最后一个log也是指向的window.xvar x=">
+<meta name="twitter:title" content="一道 this指向 题目">
+<meta name="twitter:description" content="发现一道考察对js作用域链理解的题目，记录一下 分析：普通函数调用的话，this一般是指向调用函数的对象的，但是js在一开始时就设计了匿名函数的this是指向全局对象，也就是window的 123456789101112131415var x=5, o=&amp;#123;x:10,show:function(x)&amp;#123; //这里也是匿名函数，所以最后一个log也是输出的window.xvar x=">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>一道 js-作用域链 题目 | MY BLOG</title>
+  <title>一道 this指向 题目 | MY BLOG</title>
   
 
 
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">一道 js-作用域链 题目</h1>
+          <h1 class="post-title" itemprop="name headline">一道 this指向 题目</h1>
         
 
         <div class="post-meta">
@@ -323,7 +323,7 @@
       
         <p>发现一道考察对js作用域链理解的题目，记录一下</p>
 <p>分析：普通函数调用的话，this一般是指向调用函数的对象的，但是js在一开始时就设计了匿名函数的this是指向全局对象，也就是window的</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x=<span class="number">5</span>, o=&#123;</span><br><span class="line">x:<span class="number">10</span>,</span><br><span class="line">show:<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123; <span class="comment">//这里也是匿名函数，所以最后一个log也是指向的window.x</span></span><br><span class="line"><span class="keyword">var</span> x=<span class="number">20</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>.x);<span class="comment">//10</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">show1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>.x);<span class="comment">//5 匿名函数的this指向window</span></span><br><span class="line">&#125;)();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show2</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>.x);<span class="comment">//5</span></span><br><span class="line">&#125;</span><br><span class="line">show2(x)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">o.show();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x=<span class="number">5</span>, o=&#123;</span><br><span class="line">x:<span class="number">10</span>,</span><br><span class="line">show:<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123; <span class="comment">//这里也是匿名函数，所以最后一个log也是输出的window.x</span></span><br><span class="line"><span class="keyword">var</span> x=<span class="number">20</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>.x);<span class="comment">//10</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> <span class="title">show1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>.x);<span class="comment">//5 在非严格模式下，匿名函数的this指向window（严格模式undefined）</span></span><br><span class="line">&#125;)();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show2</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">this</span>.x);<span class="comment">//5</span></span><br><span class="line">&#125;</span><br><span class="line">show2(x)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">o.show();</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -677,7 +677,7 @@
         var disqus_config = function () {
           this.page.url = 'http://yoursite.com/2018/02/27/一道js-作用域链题目/';
           this.page.identifier = '2018/02/27/一道js-作用域链题目/';
-          this.page.title = '一道 js-作用域链 题目';
+          this.page.title = '一道 this指向 题目';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://tmy.disqus.com/embed.js';
