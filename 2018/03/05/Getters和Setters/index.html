@@ -82,14 +82,14 @@
 <meta name="description" content="Getters和Setters可以快速获取或设置一个对象的数据。一般来说，一个对象拥有两个方法，分别用于获取和设置某个值，比如： {     getValue: function(){         return this._value;     },     setValue: function(val){         this._value = val;     } } 用这种方式写Ja">
 <meta name="keywords" content="knowledge,javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Getters和Setters">
-<meta property="og:url" content="http://yoursite.com/2018/01/19/Getters和Setters/index.html">
+<meta property="og:title" content="Getters和Setters(追加defineProperty)">
+<meta property="og:url" content="http://yoursite.com/2018/03/05/Getters和Setters/index.html">
 <meta property="og:site_name" content="MY BLOG">
 <meta property="og:description" content="Getters和Setters可以快速获取或设置一个对象的数据。一般来说，一个对象拥有两个方法，分别用于获取和设置某个值，比如： {     getValue: function(){         return this._value;     },     setValue: function(val){         this._value = val;     } } 用这种方式写Ja">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-27T07:44:26.729Z">
+<meta property="og:updated_time" content="2018-03-05T11:03:56.554Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Getters和Setters">
+<meta name="twitter:title" content="Getters和Setters(追加defineProperty)">
 <meta name="twitter:description" content="Getters和Setters可以快速获取或设置一个对象的数据。一般来说，一个对象拥有两个方法，分别用于获取和设置某个值，比如： {     getValue: function(){         return this._value;     },     setValue: function(val){         this._value = val;     } } 用这种方式写Ja">
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/19/Getters和Setters/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/05/Getters和Setters/"/>
 
 
 
 
 
-  <title>Getters和Setters | MY BLOG</title>
+  <title>Getters和Setters(追加defineProperty) | MY BLOG</title>
   
 
 
@@ -243,7 +243,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/Getters和Setters/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/Getters和Setters/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tmy">
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Getters和Setters</h1>
+          <h1 class="post-title" itemprop="name headline">Getters和Setters(追加defineProperty)</h1>
         
 
         <div class="post-meta">
@@ -272,8 +272,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-19T14:20:37+08:00">
-                2018-01-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-05T18:56:46+08:00">
+                2018-03-05
               </time>
             
 
@@ -291,9 +291,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/01/19/Getters和Setters/#comments" itemprop="discussionUrl">
+                <a href="/2018/03/05/Getters和Setters/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/01/19/Getters和Setters/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/03/05/Getters和Setters/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -331,56 +331,17 @@
     }
 }
 </code></pre><p>用这种方式写JavaScript的一个明显的好处是：你可以用它来隐藏那些不想让外界直接访问的属性。最终的代码看起来就像下面这样（用闭包保存新创建的Filed对象的value）：</p>
-<pre><code>function Field(val){
-    var value = val;
-    this.getValue = function(){
-        return value;
-    };
-    this.setValue = function(val){
-        value = val;
-    };
-}
-</code></pre><p>于是我们可以这样使用：</p>
-<pre><code>var field = new Field(&quot;test&quot;);
-field.value
-// =&gt; undefined
-// 因为设置了setter，所以参数直接赋值无效
-field.setValue(&quot;test2&quot;)
-field.getValue()
-// =&gt; &quot;test2&quot; 
-</code></pre><p>我们来模拟上例中的 “隐藏的value属性”，我们的代码就像这样：</p>
-<pre><code>function Field(val){
-    var value = val;
-    this.__defineGetter__(&quot;value&quot;, function(){
-        return value;
-    });
-    this.__defineSetter__(&quot;value&quot;, function(val){
-        value = val;
-    });
-}
-</code></pre><p>但是呢，你不喜欢这样写，而倾向在对象的prototype中定义getters和setters（私有变量写在哪并不重要），我们可以用另一种语法。(这样的话，用field.value方法获得的值，将会是get value()方法的返回值，类似vue的计算属性)</p>
-<pre><code>function Field(val){
-    this.value = val;
-}
-Field.prototype = {
-    get value(){
-        return this._value;
-    },
-    set value(val){
-        this._value = val;
-    }
-};
-</code></pre><p>这种语法看起来很不可思议，但是使用过一段时间之后，接受它也很容易。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">Field</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">   <span class="keyword">var</span> value = val;</span><br><span class="line"><span class="keyword">this</span>.getValue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="keyword">this</span>.setValue = <span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">   	value = val;</span><br><span class="line">   &#125;;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>于是我们可以这样使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">var</span> field = <span class="keyword">new</span> Field(<span class="string">"test"</span>);</span><br><span class="line">   field.value</span><br><span class="line">   <span class="comment">// =&gt; undefined</span></span><br><span class="line"><span class="comment">// 因为设置了setter，所以参数直接赋值无效</span></span><br><span class="line">   field.setValue(<span class="string">"test2"</span>)</span><br><span class="line">   field.getValue()</span><br><span class="line">   <span class="comment">// =&gt; "test2"</span></span><br></pre></td></tr></table></figure>
+<p>我们来模拟上例中的 “隐藏的value属性”，我们的代码就像这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Field</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">var</span> value = val;</span><br><span class="line"> <span class="keyword">this</span>.__defineGetter__(<span class="string">"value"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> 	<span class="keyword">return</span> value;</span><br><span class="line"> &#125;);</span><br><span class="line"> <span class="keyword">this</span>.__defineSetter__(<span class="string">"value"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line"> 	value = val;</span><br><span class="line"> &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是呢，你不喜欢这样写，而倾向在对象的prototype中定义getters和setters（私有变量写在哪并不重要），我们可以用另一种语法。(这样的话，用field.value方法获得的值，将会是get value()方法的返回值，类似vue的计算属性)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Field</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.value = val;</span><br><span class="line">&#125;</span><br><span class="line">Field.prototype = &#123;</span><br><span class="line">	get value()&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>._value;</span><br><span class="line">	&#125;,</span><br><span class="line">	set value(val)&#123;</span><br><span class="line">		<span class="keyword">this</span>._value = val;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这种语法看起来很不可思议，但是使用过一段时间之后，接受它也很容易。</p>
 <p>接下来是另一个例子，它允许外界获取一个username数组，但是却不能获取原始的，隐藏的user对象<br>也就是单独将对象中的某个键值对输出，但保留对象</p>
-<pre><code>function Site(users){
-    this.__defineGetter__(&quot;users&quot;, function(){
-        // JS 1.6 Array map()
-        return users.map(function(user){
-            return user.name;
-        });
-    };
-}
-</code></pre><h3 id="记住以下几点"><a href="#记住以下几点" class="headerlink" title="记住以下几点"></a>记住以下几点</h3><ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Site</span>(<span class="params">users</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">this</span>.__defineGetter__(<span class="string">"users"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// JS 1.6 Array map()</span></span><br><span class="line">  <span class="keyword">return</span> users.map(<span class="function"><span class="keyword">function</span>(<span class="params">user</span>)</span>&#123;</span><br><span class="line">  	<span class="keyword">return</span> user.name;</span><br><span class="line"> 	&#125;);</span><br><span class="line"> &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="记住以下几点"><a href="#记住以下几点" class="headerlink" title="记住以下几点"></a>记住以下几点</h3><ol>
 <li><p>一个对象内，每个变量只能有一个getter或setter。（因此value可以有一个getter和一个setter，但是value绝没有两个getters）  </p>
 </li>
 <li><p>删除getter或setter的唯一方法是：<code>delete object[name]</code>。delete可以删除一些常见的属性，getters和setters  </p>
@@ -392,6 +353,24 @@ Field.prototype = {
 <li>Firefox</li>
 <li>Safari 3+</li>
 <li>Opera 9.5</li>
+</ul>
+<hr>
+<h2 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h2><p>上面所提及到的<code>__defineGetter__</code>和<code>__defineSetter__</code>已经要废弃了，取而代之的是<code>Object.defineProperty</code>  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'key'</span>, &#123; <span class="comment">// descriptor &#125;);</span></span><br></pre></td></tr></table></figure>
+<p>这个Object的方法可以直接在某一对象上定义一个属性，这个属性可以是添加或修改现有的属性，前两个参数都很好理解，obj就是要修改的对象，key就是属性名，descriptor是一个对象，用来声明新添属性的一些特性，包括6个参数：</p>
+<ul>
+<li><p>configurable：默认false，表示此属性是否可用delete删除</p>
+</li>
+<li><p>enumerable: 默认为false，表示此属性是否可被for…in、Object.keys遍历到</p>
+</li>
+<li><p>value：默认undefined，此属性的值，可以是任何JavaScript类型</p>
+</li>
+<li><p>writable：默认为false，此属性是否可被改写</p>
+</li>
+<li><p>get：默认undefined，指定一个函数，当属性被调用时，此函数也被调用，默认为返回属性值</p>
+</li>
+<li><p>set：默认undefined，指定一个函数，当属性被赋值时，此函数也被调用，仅接受一个参数，参数为属性被赋的值</p>
+</li>
 </ul>
 
       
@@ -425,8 +404,8 @@ Field.prototype = {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/18/es6展开运算符/" rel="next" title="es6展开运算符-转载">
-                <i class="fa fa-chevron-left"></i> es6展开运算符-转载
+              <a href="/2018/02/27/一道js-作用域链题目/" rel="next" title="一道 this指向 题目">
+                <i class="fa fa-chevron-left"></i> 一道 this指向 题目
               </a>
             
           </div>
@@ -434,10 +413,6 @@ Field.prototype = {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/20/Promise的理解/" rel="prev" title="Promise的理解">
-                Promise的理解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -596,7 +571,7 @@ Field.prototype = {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Getters和Setters"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Getters&#x548C;Setters" class="headerlink" title="Getters&#x548C;Setters"></a>Getters&#x548C;Setters</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#记住以下几点"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#&#x8BB0;&#x4F4F;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;" class="headerlink" title="&#x8BB0;&#x4F4F;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;"></a>&#x8BB0;&#x4F4F;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平台"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#&#x5E73;&#x53F0;" class="headerlink" title="&#x5E73;&#x53F0;"></a>&#x5E73;&#x53F0;</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Getters和Setters"><span class="nav-number">1.</span> <span class="nav-text"><a href="#Getters&#x548C;Setters" class="headerlink" title="Getters&#x548C;Setters"></a>Getters&#x548C;Setters</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#记住以下几点"><span class="nav-number">1.1.</span> <span class="nav-text"><a href="#&#x8BB0;&#x4F4F;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;" class="headerlink" title="&#x8BB0;&#x4F4F;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;"></a>&#x8BB0;&#x4F4F;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平台"><span class="nav-number">1.2.</span> <span class="nav-text"><a href="#&#x5E73;&#x53F0;" class="headerlink" title="&#x5E73;&#x53F0;"></a>&#x5E73;&#x53F0;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-defineProperty"><span class="nav-number">2.</span> <span class="nav-text"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</span></a></li></ol></div>
             
 
           </div>
@@ -772,9 +747,9 @@ Field.prototype = {
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/01/19/Getters和Setters/';
-          this.page.identifier = '2018/01/19/Getters和Setters/';
-          this.page.title = 'Getters和Setters';
+          this.page.url = 'http://yoursite.com/2018/03/05/Getters和Setters/';
+          this.page.identifier = '2018/03/05/Getters和Setters/';
+          this.page.title = 'Getters和Setters(追加defineProperty)';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://tmy.disqus.com/embed.js';
