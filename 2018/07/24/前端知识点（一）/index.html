@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="knowledge,javascript,面试,vue," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前端知识点（一）作死开坑   构造函数中用var声明的变量不会绑定给实例，作为构造函数的局部变量存在     当全局变量与函数形参同名时，在函数内部改变变量值时，无论是var重新声明还是直接 变量＝xx 都不会覆盖全局变量的值；但如果该全局变量是引用类型(对象等，例如A＝{n:2})，因为内存地址是一样的，所以会改变函数形参相当于一个特殊的局部变量而如果全局变量与形参不同名，但函数中出现全局变量">
+<meta name="keywords" content="knowledge,javascript,面试,vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端知识点（一）">
+<meta property="og:url" content="http://yoursite.com/2018/07/24/前端知识点（一）/index.html">
+<meta property="og:site_name" content="MY BLOG">
+<meta property="og:description" content="前端知识点（一）作死开坑   构造函数中用var声明的变量不会绑定给实例，作为构造函数的局部变量存在     当全局变量与函数形参同名时，在函数内部改变变量值时，无论是var重新声明还是直接 变量＝xx 都不会覆盖全局变量的值；但如果该全局变量是引用类型(对象等，例如A＝{n:2})，因为内存地址是一样的，所以会改变函数形参相当于一个特殊的局部变量而如果全局变量与形参不同名，但函数中出现全局变量">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-24T12:07:59.843Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端知识点（一）">
+<meta name="twitter:description" content="前端知识点（一）作死开坑   构造函数中用var声明的变量不会绑定给实例，作为构造函数的局部变量存在     当全局变量与函数形参同名时，在函数内部改变变量值时，无论是var重新声明还是直接 变量＝xx 都不会覆盖全局变量的值；但如果该全局变量是引用类型(对象等，例如A＝{n:2})，因为内存地址是一样的，所以会改变函数形参相当于一个特殊的局部变量而如果全局变量与形参不同名，但函数中出现全局变量">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/24/前端知识点（一）/"/>
+
+
+
+
+
+  <title>前端知识点（一） | MY BLOG</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MY BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/24/前端知识点（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tmy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MY BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端知识点（一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-24T20:04:14+08:00">
+                2018-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/24/前端知识点（一）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/24/前端知识点（一）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<h2 id="前端知识点（一）"><a href="#前端知识点（一）" class="headerlink" title="前端知识点（一）"></a>前端知识点（一）</h2><p>作死开坑</p>
+</blockquote>
+<ul>
+<li>构造函数中用var声明的变量不会绑定给实例，作为构造函数的局部变量存在  </li>
+</ul>
+<ul>
+<li>当全局变量与函数形参同名时，在函数内部改变变量值时，无论是var重新声明还是直接 变量＝xx 都不会覆盖全局变量的值；但如果该全局变量是引用类型(对象等，例如A＝{n:2})，因为内存地址是一样的，所以会改变<br>函数形参相当于一个特殊的局部变量<br>而如果全局变量与形参不同名，但函数中出现全局变量的赋值时，会改变  </li>
+</ul>
+<ul>
+<li>两个同名的函数的声明，后者会覆盖前者，再加上声明提升，所以一开始就是后一个函数生效  </li>
+</ul>
+<ul>
+<li>var a＝b＝1;相当于var a＝1;b＝1;这样一来，b就相当于是全局变量  </li>
+</ul>
+<ul>
+<li>1＋ ＋”2”＝3因为＋”2”中的加号为一元操作符，相当于Number()；类似的还有!!强制转boolean，””＋强制转String<br>1＋”2”＝12因为字符串加数字相当于字符串拼接<br>NaN＋任何数字都是NaN，但是可以与字符串拼接  </li>
+</ul>
+<ul>
+<li>spa，ssr：spa就是单页应用，饿了么例子就是；ssr在前端就是服务器渲染，vue有专门的框架实现，要配置webpack的server entry；ssr在网络方面是一种翻墙手段  </li>
+</ul>
+<ul>
+<li>dom：文档对象模型，给html和xml文件使用的一组api，包括属性，方法和事件  </li>
+</ul>
+<ul>
+<li>navigator.userAgent用于获取浏览器类型  </li>
+</ul>
+<ul>
+<li>根据参数新建Date对象实例，减去默认Date对象实例，得出秒数，进而算出剩余时间  </li>
+</ul>
+<ul>
+<li>flexible手淘框架的核心原理就是根据不同的width给网页中html跟节点设置不同的font-size，然后所有的距离大小都用rem来代替，这样就实现了不同大小的屏幕都适应相同的样式了<br>flexible：移动端布局方案，实质是动态改写meta标签和font-size以及data-dpr，还将px转换成rem  </li>
+</ul>
+<ul>
+<li>同源策略：不同域的脚本不会被执行  </li>
+</ul>
+<ul>
+<li>箭头函数中的this是在定义函数的时候绑定，普通函数的this则是在调用时绑定<br>箭头函数不能作为构造函数，因为不能new<br>没有arguments对象，要用…rest参数（不定参）实现  </li>
+</ul>
+<ul>
+<li>前端优化：减少http请求次数，减少dom操作，优化选择器，合理编码与优化代码  </li>
+</ul>
+<ul>
+<li>v-if动态添加dom，v-show切换display；前者切换代价高，后者初始化慢  </li>
+</ul>
+<ul>
+<li>逗号操作符 对它的每个操作对象求值（从左至右），然后返回最后一个操作对象的值  </li>
+</ul>
+<ul>
+<li>垂直居中：flex布局的align-items:center<br>或 display:table-cell＋vertical-align:middle<br>或 absolute＋left和top:50% 然后设置负margin （需知宽高）<br>或 position:fixed/absolute＋margin:auto<br>或 position:absolute＋top:50%＋<br>transform:translateY(-50%)  </li>
+</ul>
+<ul>
+<li>vertical-align适用于行内标签和display:table-cell；text-align适用于display:block  </li>
+</ul>
+<ul>
+<li>react和vue的区别：前者jsx后者html；前者必须状态管理state后者将数据置于data对象中；前者适合大型应用后者小型应用 前者还可以开发原生应用  </li>
+</ul>
+<ul>
+<li>vue路由：url改变，通过hashchange事件监听改变，通知给vue实例，再根据当前地址重新渲染router-view  </li>
+</ul>
+<ul>
+<li>vuex中只有通过mutation才能改变state，有点像事件注册，但必须是同步函数；action用于触发mutation，可以在action内部执行异步操作，用this.$store.dispatch分发action，也可用mapAction辅助函数  </li>
+</ul>
+<ul>
+<li>圣杯布局：左右固定宽度，中间100%；中间dom先写，两边后写，左边左margin-100%，右边左margin-自己宽度；父元素设置左右padding，左右块移过去<br>双飞翼布局：效果和圣杯一样，区别是中间栏的内容不被遮挡的方式不一样，双飞翼直接创建子div放内容，设置margin为两侧留出空位<br>如果用flex布局的话，就是flex-grow和flex-basic的配合  </li>
+</ul>
+<ul>
+<li>http缓存：服务器端的缓存，服务器发送缓存规则和内容给浏览器，浏览器保存；<br>分为强制缓存与对比缓存；<br>前者如果有相应缓存就不请求服务器，后者无论缓存是否命中，都会向服务器发送缓存验证标识，来判断是否失效（存在）；<br>两者可同时存在，前者优先级高；<br>缓存的规则信息都在http header中；用header中的Cache-Control控制缓存规则，etag/if-none-match或者last-modified/if-modified-since判断是否改变  </li>
+</ul>
+<ul>
+<li>weex（阿里）：使用web开发体验来开发高性能原生应用的框架，可以配合vuejs来开发原生app；原理是把vue写出来的web页面打包成一个js包，通过特殊的js引擎转换成原生应用  </li>
+</ul>
+<ul>
+<li>发布订阅模式：<br>1.确认一个发布者<br>2.给发布者添加一个列表用于存放订阅者和回调函数<br>3.发布：发布者遍历列表，按订阅者触发回调函数<br>4.订阅：向列表中添加订阅者身份标识和回调函数  </li>
+</ul>
+<ul>
+<li>form标签：用entype属性规定表单提交前 内容的编码形式，默认www-form编码，有上传文件时要multipart/form-data编码  </li>
+</ul>
+<ul>
+<li>渐进增强/优雅降级：先上兼容/向下兼容；在css中就是前者先写兼容css照顾低版本浏览器再写正常css，后者相反；这两个只是看待同种事物的两种观点  </li>
+</ul>
+<ul>
+<li>retina屏幕：像素每英寸（ppi）大于300的超高像素密度的屏幕；<br>dpr：设备像素比，可以用来表示屏幕的等级，dpr＝2意味着css中1px对应2px物理像素<br>配合viewport知识点食用更佳  </li>
+</ul>
+<ul>
+<li>@dpclick：vue 双击事件  </li>
+</ul>
+<ul>
+<li>js原生弹窗：alert/confirm（确认框）/prompt（输入提示框）  </li>
+</ul>
+<ul>
+<li>es6…展开运算符：可以在不定形参时用…arg代替；解构赋值；将类数组对象变成数组对象；展开运算符一般在最后一个<br>不定参还可以直接用arguments对象来实现，通过判断arguments的长度来确定有几个参数<br>不定参可实现js函数的重载  </li>
+</ul>
+<ul>
+<li>深拷贝：递归拷贝，判断子内容是不是对象决定是否递归和继续  </li>
+</ul>
+<ul>
+<li>带cookie的跨域也用CORS解决，只是对相应头的设置要改变  </li>
+</ul>
+<ul>
+<li>匿名函数的this指向window，因为故意设计成window是匿名函数的调用者  </li>
+</ul>
+<ul>
+<li>js中的垃圾回收机制：一种是标记清除，将进入环境的变量标记为“进入环境”，执行结束后标记为“离开环境”，然后在触发回收间隔后清理回收；另一种是引用计数，每次被引用，变量计数就加一，如果不引用了就减一，当引用计数为0时，在触发回收间隔后就会清理回收掉；后者容易触发内存泄漏；<br>内存泄漏：用不到的内存，没有及时释放就是内存泄漏   </li>
+</ul>
+<ul>
+<li>dom0级事件：行间click事件和js中onclick绑定的事件，后者覆盖前者；<br>dom2级事件：addEventListener绑定的事件，可与dom0共存；<br>dom3事件：在已有基础上添加一些新的事件，并为事件对象添加一些新的属性  </li>
+</ul>
+<ul>
+<li>链式调用基本原理：return this  </li>
+</ul>
+<ul>
+<li>promise.all：将多个promise实例包装成一个实例，全部完成时包装后实例才为完成<br>promise.race：将多个promise包装在一起，只要有一个完成就会改变包装后实例的状态  </li>
+</ul>
+<ul>
+<li>BFC：块级格式化上下文，页面中的具有一套渲染规则的渲染区域；容器里面的元素不会在布局上影响外面的元素；同一个BFC下外边距会折叠；float的值不为none，overflow不为visible，position为absolute或fixed，display的值为inline-block或table-cell就会形成BFC  </li>
+</ul>
+<ul>
+<li>URL和URI：前者统一资源定位符，后者统一资源标识符；URL包含URI  </li>
+</ul>
+<ul>
+<li>xss：跨站脚本攻击，相当于html注入，如果不过滤执行了js代码，可能导致cookie泄露等。防止：过滤<br>csrf：跨站请求伪造（cookie），挟制用户在当前已登录的Web应用程序上执行非本意的操作。防止：设置token（存在本地，访问时带上）、验证码、写操作用post、JSON API禁用CORS、禁用跨域请求、检查referrer  </li>
+</ul>
+<ul>
+<li>css3 animation是纯css实现，而jQuery animation是快速切换css样式实现的；前者效率高，后者兼容性好  </li>
+</ul>
+<ul>
+<li>ajax不能前进后退的原因是因为ajax不用刷新页面就可以获取数据，这样window.history（历史记录）中就没有相关的URL保存记录；只要想办法解决history记录的问题就行：html5的pushState方法和添加location的hash都可以解决  </li>
+</ul>
+<ul>
+<li></li>
+<li><p>require是CommonJS规范的一个全局性方法用于加载模块；exports是CommonJS的导出方法；export为es6的模块规定对外接口；export default为模块指定默认输出，在import的时候指定任意名字；import是es6的模块加载方法，用as关键字可以重新命名<br>import和require的区别：前者动态引用，后者立即加载<br>import和export最终都是编译成require和exports  </p>
+</li>
+</ul>
+<ul>
+<li>AMD：异步(A)模块定义；<br>定义：define(id?,dependencies?,factory)模块名称（字符串），依赖模块（数组形式），方法（模块函数）<br>加载：require([module],callback);<br>CMD：通常(C)模块定义；定义的方法与AMD一样；<br>AMD与CMD的区别：AMD前置依赖，立即加载依赖模块；CMD就近依赖，要把模块变成字符串解析一遍才知道依赖哪些模块  </li>
+</ul>
+<ul>
+<li>webpack loader：通过不同的loader使webpack可以调用外部脚本或工具，实现对不同格式的文件的处理，如.vue对应vue-loader以及css预编译的转换  </li>
+</ul>
+<ul>
+<li>nodejs：用http模块创建了服务器后，用url模块处理get请求，用模块在请求头中获取post的数据，用mysql模块连接mysql，有events模块可以设置相应的事件回调函数，有process模块可以实现子线程，用fs模块实现文件读取写入  </li>
+</ul>
+<ul>
+<li>vue组件库（插件）：编写导出文件（install函数（vue插件必须要有这个函数）中注册全局组件，然后全局vue作为参数），webpack配置（加上external和library，这样才会打包vue），package.json配置  </li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/knowledge/" rel="tag"># knowledge</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/06/一道js-作用域链题目 /" rel="next" title="js作用域链理解的题目">
+                <i class="fa fa-chevron-left"></i> js作用域链理解的题目
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="tmy" />
+            
+              <p class="site-author-name" itemprop="name">tmy</p>
+              <p class="site-description motion-element" itemprop="description">tmy's blogs and notebook(?)</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/tmy5277" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:13570810128@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/tmy5277" target="_blank" title="Google">
+                    
+                      <i class="fa fa-fw fa-google"></i>Google</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端知识点（一）"><span class="nav-number">1.</span> <span class="nav-text"><a href="#&#x524D;&#x7AEF;&#x77E5;&#x8BC6;&#x70B9;&#xFF08;&#x4E00;&#xFF09;" class="headerlink" title="&#x524D;&#x7AEF;&#x77E5;&#x8BC6;&#x70B9;&#xFF08;&#x4E00;&#xFF09;"></a>&#x524D;&#x7AEF;&#x77E5;&#x8BC6;&#x70B9;&#xFF08;&#x4E00;&#xFF09;</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tmy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://tmy.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/07/24/前端知识点（一）/';
+          this.page.identifier = '2018/07/24/前端知识点（一）/';
+          this.page.title = '前端知识点（一）';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://tmy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
